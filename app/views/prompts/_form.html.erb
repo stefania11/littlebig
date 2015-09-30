@@ -15,6 +15,11 @@
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
+
+  <div class="field">
+    <%= f.hidden_field :prompt_id, value: @prompt_id %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

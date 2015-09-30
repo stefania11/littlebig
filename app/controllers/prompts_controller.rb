@@ -14,6 +14,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts/new
   def new
+    @prompt_id = params[:prompt_id]
     @prompt = Prompt.new
   end
 
@@ -69,6 +70,6 @@ class PromptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def prompt_params
-      params.require(:prompt).permit(:body)
+      params.require(:prompt).permit(:body, :prompt_id)
     end
 end
