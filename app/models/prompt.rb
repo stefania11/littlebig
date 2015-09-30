@@ -4,8 +4,11 @@ class Prompt < ActiveRecord::Base
 
   def prompt_id=(id)
     Prompt.find(id).responses << self
-    # self.response_ids << id
+  end
 
+  def source
+    source_id = Conversation.find_by(response_id: self.id).prompt_id
+    Prompt.find(source_id)
   end
 
 end

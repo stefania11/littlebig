@@ -16,9 +16,11 @@
     <%= f.text_area :body %>
   </div>
 
+<% if @prompt_id %>
   <div class="field">
     <%= f.hidden_field :prompt_id, value: @prompt_id %>
   </div>
+<% end %>
 
   <div class="actions">
     <%= f.submit %>
