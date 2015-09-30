@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930184306) do
+ActiveRecord::Schema.define(version: 20150930214526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "concepts", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "prompt_id"
@@ -32,4 +44,28 @@ ActiveRecord::Schema.define(version: 20150930184306) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "character_id"
+    t.integer  "prompt_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "relationships", ["character_id"], name: "index_relationships_on_character_id", using: :btree
+  add_index "relationships", ["prompt_id"], name: "index_relationships_on_prompt_id", using: :btree
+
+  create_table "topics", force: :cascade do |t|
+    t.integer  "concept_id"
+    t.integer  "prompt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "welcomes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "relationships", "characters"
+  add_foreign_key "relationships", "prompts"
 end
