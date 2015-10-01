@@ -64,7 +64,15 @@
                               <li><a href="portfolio-details.html">Portfolio Details</a></li>
                           </ul>
                       </li>
-                      <li><a href="shortcodes.html ">Shortcodes</a></li>
+                      <li>
+
+                        <% if user_signed_in? %>
+                        <a href="<%= new_session_path%>">Sign In</a>
+                        <% else %>
+                        <a href="<%= session_path%>", method="delete">Sign Out</a>
+                        <% end %>
+
+                      </li>
                   </ul>
               </div>
               <div class="search">
