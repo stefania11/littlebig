@@ -5,13 +5,4 @@ class Prompt < ActiveRecord::Base
   def prompt_id=(id)
     Prompt.find(id).responses << self
   end
-
-  def source
-    value = super
-    if value
-      value
-    else
-      'No source yo!'
-    end
-  end
 end
