@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  root 'welcomes#index'
   resources :users, only: [:new, :create]
-  root 'welcome#index'
+  resources :sessions, only: [:new, :create, :destroy]
   resources :prompts
+  resources :characters, :concepts, :prompts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

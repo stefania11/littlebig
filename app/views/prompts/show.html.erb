@@ -6,4 +6,11 @@
 </p>
 
 <%= link_to 'Edit', edit_prompt_path(@prompt) %> |
-<%= link_to 'Back', prompts_path %>
+<%= link_to 'Back', prompts_path %> |
+
+<p>
+<form class="" action="<%= new_prompt_path %>" method="get">
+  <input type="hidden" value="<%= @prompt.id %>" name="prompt_id">
+  <input type="submit" value="Answer this question">
+</form>
+</p>
