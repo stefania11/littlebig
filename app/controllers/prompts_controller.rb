@@ -14,6 +14,7 @@ class PromptsController < ApplicationController
   def new
     @prompt_id = params[:prompt_id]
     @prompt = Prompt.new
+    @concept_id = params[:concept_id]
   end
 
   # POST /prompts
@@ -24,6 +25,8 @@ class PromptsController < ApplicationController
 
     if @prompt.source
       redirect_to @prompt.source, notice: 'Prompt was successfully created.'
+    elsif prompt_params[:concept_id]
+      redirect_to @prompt.concepts.last, notice: 'Prompt was successfully created.'
     else
       redirect_to @prompt, notice: 'Prompt was successfully created.'
     end
@@ -35,6 +38,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:body, :prompt_id)
+      params.require(:prompt).permit(:body, :prompt_id, :concept_id)
     end
 end

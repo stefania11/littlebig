@@ -2,7 +2,7 @@
   <%= prompt.body %>
   <%= link_to 'Show', prompt %>
 
-  <%= render partial: 'respond', locals: { prompt: prompt } %>
+  <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
 
   <% unless prompt.responses.empty? %>
     <ul>
