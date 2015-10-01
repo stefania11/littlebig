@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @prompt.body %>
-</p>
 
-<%= link_to 'Edit', edit_prompt_path(@prompt) %> |
-<%= link_to 'Back', prompts_path %> |
+  <strong>Source:</strong>
+  <% if @prompt.source %>
+    <%= @prompt.source.body %>
+    <%= link_to 'Show', @prompt.source %>
+  <% else %>
+    No source for this one!
+  <% end %>
+  <%= render partial: 'prompt', locals: { prompt: @prompt } %>
 
-<p>
-<form class="" action="<%= new_prompt_path %>" method="get">
-  <input type="hidden" value="<%= @prompt.id %>" name="prompt_id">
-  <input type="submit" value="Answer this question">
-</form>
 </p>

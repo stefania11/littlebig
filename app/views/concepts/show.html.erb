@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Concept:</strong>
   <%= @concept.name %>
+  <%= link_to 'Edit', edit_concept_path(@concept) %>
+
+  <form class="" action="<%= new_prompt_path %>" method="get">
+    <input type="hidden" value="<%= @concept.id %>" name="concept_id">
+    <input type="submit" value="Create a new prompt from this concept">
+  </form>
+
 </p>
 
-<%= link_to 'Edit', edit_concept_path(@concept) %> |
-<%= link_to 'Back', concepts_path %>
+<p>
+  <strong>Related Prompts:</strong>
+  <%= render @concept.prompts %>
+</p>
