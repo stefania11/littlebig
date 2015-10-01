@@ -4,7 +4,7 @@
 
   <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
 
-  <% unless prompt.responses.empty? %>
+  <% if prompt.responses.present? %>
     <ul>
       <% prompt.responses.each do |response| %>
         <li><%= render partial: 'prompt', locals: { prompt: response } %></li>
