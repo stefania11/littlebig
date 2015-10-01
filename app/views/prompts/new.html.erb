@@ -1,7 +1,7 @@
 <%# TODO: Remove this. Mostly for demo. AJAX will make it unnecessary %>
 <p>
-  <% prompt = Prompt.find(@prompt_id) %>
-  <% if prompt %>
+  <% if @prompt_id %>
+    <% prompt = Prompt.find(@prompt_id) %>
     <strong>You're responding to:</strong>
     <%= prompt.body %>
 
