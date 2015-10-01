@@ -67,9 +67,9 @@
                       <li>
 
                         <% if user_signed_in? %>
-                        <a href="<%= new_session_path%>">Sign In</a>
+                        <a href="/logout">Sign Out</a>
                         <% else %>
-                        <a href="<%= session_path%>", method="delete">Sign Out</a>
+                        <a href="<%= new_session_path%>">Sign In</a>
                         <% end %>
 
                       </li>
