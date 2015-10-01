@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-
   <strong>Source:</strong>
   <% if @prompt.source %>
     <%= @prompt.source.body %>
@@ -9,6 +8,5 @@
   <% else %>
     No source for this one!
   <% end %>
-  <%= render partial: 'prompt', locals: { prompt: @prompt } %>
-
+  <%= render partial: 'prompts/prompt', locals: { prompt: @prompt } %>
 </p>
