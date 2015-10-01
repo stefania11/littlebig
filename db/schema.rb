@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150930214526) do
+ActiveRecord::Schema.define(version: 20151001003134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,16 +27,6 @@ ActiveRecord::Schema.define(version: 20150930214526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "prompt_id"
-    t.integer  "response_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "conversations", ["prompt_id"], name: "index_conversations_on_prompt_id", using: :btree
-  add_index "conversations", ["response_id"], name: "index_conversations_on_response_id", using: :btree
 
   create_table "prompts", force: :cascade do |t|
     t.text     "body"
@@ -60,6 +50,9 @@ ActiveRecord::Schema.define(version: 20150930214526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "topics", ["concept_id"], name: "index_topics_on_concept_id", using: :btree
+  add_index "topics", ["prompt_id"], name: "index_topics_on_prompt_id", using: :btree
 
   create_table "welcomes", force: :cascade do |t|
     t.datetime "created_at", null: false
