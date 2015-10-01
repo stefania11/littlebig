@@ -232,7 +232,7 @@
   #header .navbar-inverse .navbar-toggle:hover .icon-bar {
     background: #fff;
   }
- 
+
   .navbar-inverse .navbar-collapse,
   .navbar-inverse .navbar-form {
     border-top: 0;
@@ -266,8 +266,8 @@
     padding: 5px 10px;
   }
 
-  #header .navbar-inverse .navbar-nav li.active > a, 
-  #header .navbar-inverse .navbar-nav li.active > a:focus, 
+  #header .navbar-inverse .navbar-nav li.active > a,
+  #header .navbar-inverse .navbar-nav li.active > a:focus,
   #header .navbar-nav.navbar-right li > a:hover {
     border: none;
   }
@@ -413,7 +413,7 @@
     padding-right: 15px;
   }
 
-  .nav.nav-justified.post-nav li, 
+  .nav.nav-justified.post-nav li,
   .nav.navbar-nav.post-nav li{
     display: inline-block;
     margin-right: 15px;
@@ -496,7 +496,7 @@
     font-size: 25px;
   }
 
-  #countdown li.angle-one span.minutes, 
+  #countdown li.angle-one span.minutes,
   #countdown li.angle-one .minute {
     margin-left: 0
   }
@@ -608,7 +608,7 @@
     font-size: 25px;
   }
 
-  #countdown li.angle-one span.minutes, 
+  #countdown li.angle-one span.minutes,
   #countdown li.angle-one .minute {
     margin-left: 0
   }
