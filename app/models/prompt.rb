@@ -5,4 +5,9 @@ class Prompt < ActiveRecord::Base
   def prompt_id=(id)
     Prompt.find(id).responses << self
   end
+
+  def concept_id=(id)
+    Concept.find(id).prompts << self
+  end
+
 end
