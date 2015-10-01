@@ -16,4 +16,11 @@ class Prompt < ActiveRecord::Base
     Concept.find(id).prompts << self
   end
 
+  def concept_list=(string)
+    concept_list = string.scan(/\w+/).map do |name|
+      Concept.find_or_create_by(name: name.downcase.titleize)
+    end
+
+    self.concepts = concepts + concept_list
+  end
 end

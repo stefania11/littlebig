@@ -1,3 +1,24 @@
+<%# TODO: Remove this. Mostly for demo. AJAX will make it unnecessary %>
+<p>
+  <% prompt = Prompt.find(@prompt_id) %>
+  <% if prompt %>
+    <strong>You're responding to:</strong>
+    <%= prompt.body %>
+
+    <%= link_to "Show", prompt %>
+
+    <% if prompt.concepts.present? %>
+      <% prompt.concepts.each do |concept| %>
+        <%= link_to concept.to_s, concept %>
+      <% end %>
+    <% end %>
+  <% elsif @concept_id %>
+    You're associating a prompt with the concept
+    <strong><%= Concept.find(@concept_id).to_s %></strong>.
+  <% end %>
+</p>
+<%# end %>
+
 <h1>New Prompt</h1>
 
 <%= render 'form' %>
