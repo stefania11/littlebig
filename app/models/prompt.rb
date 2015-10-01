@@ -17,10 +17,11 @@ class Prompt < ActiveRecord::Base
   end
 
   def concept_list=(string)
+    # TODO: make this more robust, possibly a class?
     concept_list = string.scan(/\w+/).map do |name|
       Concept.find_or_create_by(name: name.downcase.titleize)
     end
 
-    self.concepts = concepts + concept_list
+    self.concepts += concept_list
   end
 end
