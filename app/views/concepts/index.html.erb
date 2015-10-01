@@ -7,6 +7,9 @@
       <tr>
         <td><%= concept.name %></td>
         <td><%= link_to 'Show', concept %></td>
+        <td>
+          <%= render partial: 'newprompt', locals: { concept: concept } %>
+        </td>
       </tr>
     <% end %>
 </table>
