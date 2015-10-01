@@ -12,12 +12,8 @@ class Prompt < ActiveRecord::Base
     Prompt.find(id).responses << self
   end
 
-  def source
-    value = super
-    if value
-      value
-    else
-      'No source yo!'
-    end
+  def concept_id=(id)
+    Concept.find(id).prompts << self
   end
+
 end

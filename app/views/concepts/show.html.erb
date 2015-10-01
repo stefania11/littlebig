@@ -1,9 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Concept:</strong>
   <%= @concept.name %>
+  <%= link_to 'Edit', edit_concept_path(@concept) %> |
+  <%= link_to 'Destroy', @concept, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= render partial: 'concepts/new_prompt', locals: { concept: @concept } %>
 </p>
 
-<%= link_to 'Edit', edit_concept_path(@concept) %> |
-<%= link_to 'Back', concepts_path %>
+<% if @concept.prompts.present? %>
+  <p>
+    <strong>Related Prompts:</strong>
+    <%= render @concept.prompts %>
+  </p>
+<% end %>

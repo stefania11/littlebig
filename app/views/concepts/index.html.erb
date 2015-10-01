@@ -3,23 +3,17 @@
 <h1>Listing Concepts</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @concepts.each do |concept| %>
       <tr>
         <td><%= concept.name %></td>
         <td><%= link_to 'Show', concept %></td>
         <td><%= link_to 'Edit', edit_concept_path(concept) %></td>
         <td><%= link_to 'Destroy', concept, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= render partial: 'concepts/new_prompt', locals: { concept: concept } %>
+        </td>
       </tr>
     <% end %>
-  </tbody>
 </table>
 
 <br>

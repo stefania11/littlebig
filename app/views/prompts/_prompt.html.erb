@@ -1,0 +1,14 @@
+<p>
+  <%= prompt.body %>
+  <%= link_to 'Show', prompt %>
+
+  <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+
+  <% if prompt.responses.present? %>
+    <ul>
+      <% prompt.responses.each do |response| %>
+        <li><%= render partial: 'prompts/prompt', locals: { prompt: response } %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
