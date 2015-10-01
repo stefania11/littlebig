@@ -15,8 +15,9 @@
       <tr>
         <td><%= prompt.body %></td>
         <td><%= link_to 'Show', prompt %></td>
-        <td><%= link_to 'Edit', edit_prompt_path(prompt) %></td>
-        <td><%= link_to 'Destroy', prompt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= render partial: 'respond', locals: { prompt: prompt } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

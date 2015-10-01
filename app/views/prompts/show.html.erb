@@ -8,7 +8,5 @@
   <% else %>
     No source for this one!
   <% end %>
+  <%= render partial: 'prompt', locals: { prompt: @prompt } %>
 </p>
-
-
-<%= render partial: 'prompt', locals: { prompt: @prompt } %>
