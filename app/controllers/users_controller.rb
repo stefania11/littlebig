@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: "You have created yo' self!"
+      redirect_to prompts_path, notice: "You have created yo' self!"
       session[:user_id] = @user.id
     else
       render 'new'
