@@ -1,7 +1,6 @@
 <p>
   <%= prompt.body %>
   <%= link_to 'Show', prompt %>
-
   <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
 
   <% if prompt.responses.present? %>
