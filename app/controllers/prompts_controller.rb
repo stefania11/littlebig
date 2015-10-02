@@ -12,7 +12,6 @@ class PromptsController < ApplicationController
 
   # GET /prompts/new
   def new
-    binding.pry
     @prompt_id = params[:prompt_id]
     @concept_id = params[:concept_id]
     @character_id = params[:character_id]
@@ -40,6 +39,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:body, :prompt_id, :concept_id, :character_id, :concept_list)
+      params.require(:prompt).permit(:body, :prompt_id, :concept_id, :character_id, :concept_list, :character_list)
     end
 end
