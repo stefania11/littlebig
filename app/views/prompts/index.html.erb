@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Prompts</h1>
-
-<table>
-    <% @prompts.each do |prompt| %>
-      <tr>
-        <td><%= prompt.body %></td>
-        <td><%= link_to 'Show', prompt %></td>
-        <td>
-          <%= render partial: 'respond', locals: { prompt: prompt } %>
-        </td>
-      </tr>
-    <% end %>
-</table>
-
-<br>
-
-<%= link_to 'New Prompt', new_prompt_path %>
+<section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>
+                      <ul>
+                      <strong>Questions:</strong>
+                        <% @prompts.each do |prompt| %>
+                            <li><%= prompt.body %></li>
+                            <li><%= link_to 'Show', prompt %></li>
+                            <li>
+                              <%= render partial: 'respond', locals: { prompt: prompt } %>
+                            </li>
+                        <% end %>
+                        <li><%= link_to 'New Prompt', new_prompt_path %></li>w
+                      </ul>
+                   </p>
+                </div>
+            </div>
+        </div>
+ </section>

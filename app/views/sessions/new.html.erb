@@ -1,17 +1,10 @@
-<h1>Log in</h1>
-<%= form_tag sessions_path do %>
-  <fieldset>
-    <div class="field">
-      <%= label_tag :email %><br />
-      <%= text_field_tag :email, params[:email] %>
+<section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+          <h1 class="margin-bottom">Sign in</h1>
+          <p><%= render 'form' %></p>
+      </div>
     </div>
-  </fieldset>
-
-  <div class="field">
-    <%= label_tag :password%>
-    <%= password_field_tag "params[:password]" %>
   </div>
-
-  <div class="actions">
-    <%= submit_tag "Log in" %>
-  </div>
+ </section>

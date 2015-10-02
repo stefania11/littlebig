@@ -1,7 +1,6 @@
 <p>
   <%= prompt.body %>
   <%= link_to 'Show', prompt %>
-
   <% if prompt.concepts.present? %>
     <% prompt.concepts.each do |concept| %>
       <%= link_to concept.to_s, concept %>
