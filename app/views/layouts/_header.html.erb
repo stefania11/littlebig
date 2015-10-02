@@ -27,10 +27,15 @@
       <!-- <links at the top> -->
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="<%= root_path %>">Home</a></li>
           <li class="active"><a href="<%= prompts_path %>">Questions</a></li>
           <li class="active"><a href="<%= characters_path %>">Characters</a></li>
           <li class="active"><a href="<%= concepts_path %>">Concepts</a></li>
+          <% if user_signed_in? %>
+            <li class="active"><a href="/logout">SignOut</a></li>
+          <% else %>
+            <li class="active"><a href="/login">SignIn</a></li>
+            <li class="active"><a href="/signup">SignUp</a></li>
+          <% end %>
         </ul>
       </div>
 
@@ -41,7 +46,6 @@
               <div class="field-toggle">
                   <input type="text" class="search-form" autocomplete="off" placeholder="Search">
               </div>
-          </form>
       </div>
     </div>
   </div>
