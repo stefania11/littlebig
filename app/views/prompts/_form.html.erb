@@ -35,6 +35,12 @@
     </div>
   <% end %>
 
+  <% if @character_id %>
+    <div class="field">
+      <%= f.hidden_field :concept_id, value: @character_id %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

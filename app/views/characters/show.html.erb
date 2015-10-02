@@ -5,5 +5,10 @@
   <%= @character.name %>
 </p>
 
+<form class="" action="<%= new_prompt_path %>" method="get">
+  <input type="hidden" name="character_id" value="<%= @character.id %>">
+  <input type ="submit" value="Create new prompts associated with this character">
+</form>
+
 <%= link_to 'Edit', edit_character_path(@character) %> |
 <%= link_to 'Back', characters_path %>
