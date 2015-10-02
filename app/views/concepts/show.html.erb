@@ -2,7 +2,7 @@
 
 <p>
   <strong>Concept:</strong>
-  <%= @concept.to_s %>
+  <%= link_to @concept, @concept %>
   <%= link_to 'Edit', edit_concept_path(@concept) %> |
   <%= link_to 'Destroy', @concept, method: :delete, data: { confirm: 'Are you sure?' } %>
   <%= render partial: 'concepts/new_prompt', locals: { concept: @concept } %>
