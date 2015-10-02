@@ -13,8 +13,8 @@ class PromptsController < ApplicationController
   # GET /prompts/new
   def new
     @prompt_id = params[:prompt_id]
-    @prompt = Prompt.new
     @concept_id = params[:concept_id]
+    @prompt = Prompt.new
   end
 
   # POST /prompts
@@ -38,6 +38,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:body, :prompt_id, :concept_id)
+      params.require(:prompt).permit(:body, :prompt_id, :concept_id, :concept_list)
     end
 end
