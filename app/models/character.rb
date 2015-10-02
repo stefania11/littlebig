@@ -6,4 +6,8 @@ class Character < ActiveRecord::Base
   def normalize_name
     name.downcase.titleize
   end
+
+  def to_s
+    "##{name}"
+  end
 end
