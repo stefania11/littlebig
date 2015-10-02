@@ -3,7 +3,7 @@
 <p>
   <strong>Character:</strong>
 
-  <%= link_to @character %>
+  <%= link_to @character, @character %>
   <%= link_to 'Edit', edit_character_path(@character) %> |
   <%= link_to 'Destroy', @character, method: :delete, data: { confirm: 'Are you sure?' } %>
   <form class="" action="<%= new_prompt_path %>" method="get">

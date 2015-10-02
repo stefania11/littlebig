@@ -3,7 +3,12 @@
   <%= link_to 'Show', prompt %>
   <% if prompt.concepts.present? %>
     <% prompt.concepts.each do |concept| %>
-      <%= link_to concept.to_s, concept %>
+      <%= link_to concept, concept %>
+    <% end %>
+  <% end %>
+  <% if prompt.characters.present? %>
+    <% prompt.characters.each do |character| %>
+      <%= link_to character, character %>
     <% end %>
   <% end %>
 
