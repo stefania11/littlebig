@@ -16,18 +16,35 @@
     <%= f.text_area :body %>
   </div>
 
-<% if @prompt_id %>
+  <%# TODO: Should this be a form_tag? %>
   <div class="field">
-    <%= f.hidden_field :prompt_id, value: @prompt_id %>
+    <label for="prompt[concept_list]">Concepts</label>
+    <input type="text" name="prompt[concept_list]">
   </div>
-<% end %>
 
-<% if @concept_id %>
   <div class="field">
-    <%= f.hidden_field :concept_id, value: @concept_id %>
+    <label for="prompt[character_list]">Characters</label>
+    <input type="text" name="prompt[character_list]">
   </div>
-<% end %>
 
+  <%# TODO: can this/should this be DRYer? More flexible? %>
+  <% if @prompt_id %>
+    <div class="field">
+      <%= f.hidden_field :prompt_id, value: @prompt_id %>
+    </div>
+  <% end %>
+
+  <% if @concept_id %>
+    <div class="field">
+      <%= f.hidden_field :concept_id, value: @concept_id %>
+    </div>
+  <% end %>
+
+  <% if @character_id %>
+    <div class="field">
+      <%= f.hidden_field :character_id, value: @character_id %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
