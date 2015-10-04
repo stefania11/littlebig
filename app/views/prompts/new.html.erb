@@ -1,34 +1,12 @@
-<%# TODO: Remove this. Mostly for demo. AJAX will make it unnecessary %>
-<p>
-  <% if @prompt_id %>
-    <% prompt = Prompt.find(@prompt_id) %>
-    <strong>You're responding to:</strong>
-    <%= prompt.body %>
-
-    <%= link_to "Show", prompt %>
-
-    <% if prompt.concepts.present? %>
-      <% prompt.concepts.each do |concept| %>
-        <%= link_to concept.to_s, concept %>
-      <% end %>
-    <% end %>
-  <% elsif @concept_id %>
-    You're associating a prompt with the concept
-    <strong><%= Concept.find(@concept_id).to_s %></strong>.
-  <% end %>
-</p>
-<%# end %>
-
-<section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 text-center">
-        <h1 class="margin-bottom">Write a new prompt</h1>
-        <p>
-          <%= render 'form' %>
-          <%= link_to 'Back', prompts_path %>
-        </p>
-      </div>
-    </div>
-  </div>
+ <section>
+   <div class="container">
+       <div class="row">
+         <div class="main-slider">
+           <div class="col-sm-4 col-sm-offset-4 text-center">
+             <h1 class="margin-bottom">New prompt</h1>
+             <%= render 'form' %>
+           </div>
+         </div>
+       </div>
+   </div>
  </section>
