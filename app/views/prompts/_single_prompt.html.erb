@@ -3,18 +3,21 @@
     <h2 class="post-title bold">
       <%= link_to prompt.body, prompt %>
     </h2>
+
     <h3 class="post-author">
       <%# TODO: Add in the associated user %>
       <a href="#">Posted by a user</a>
     </h3>
-    <p>
-      !!! TAGS?
-    </p>
-    <%= render partial: 'respond', locals: { prompt: prompt } %>
+
+    <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
+
+    <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <%= time_ago_in_words prompt.created_at %> ago
       </span>
+
       <span class="comments-number pull-right">
         <%= link_to prompt do %>
           <%= pluralize prompt.responses.count, 'response' %>

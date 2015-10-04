@@ -8,6 +8,19 @@ class Prompt < ActiveRecord::Base
   has_many :relationships
   has_many :characters, through: :relationships
 
+  def concepts_and_characters
+    case
+    when concepts.present? && characters.present?
+      concepts + characters
+    when concepts.present?
+      concepts
+    when characters.present?
+      characters
+    else
+      []
+    end
+  end
+
   def prompt_id=(id)
     Prompt.find(id).responses << self
   end

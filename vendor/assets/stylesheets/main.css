@@ -81,6 +81,7 @@
   .btn-common {
     font-size: 14px;
     color: #0099ae;
+    background-color: transparent;
     border: 1px solid #0099ae;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;

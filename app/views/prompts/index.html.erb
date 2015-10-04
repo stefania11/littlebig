@@ -1,25 +1,16 @@
-<section class="padding-bottom" id="blog">
+<section id="blog" class="padding-bottom">
   <div class="container">
     <div class="row">
-
       <div class="timeline-blog overflow padding-top">
         <div class="timeline-date text-center">
           <%= link_to 'NEW PROMPT', new_prompt_path, class: 'btn btn-common uppercase' %>
         </div>
 
         <div class="timeline-divider overflow padding-bottom">
-          <% @prompts.each_with_index do |prompt, index| %>
-            <% if index.odd? %>
-              <%= render partial: 'prompts/right', locals: { prompt: prompt } %>
-            <% else %>
-              <%= render partial: 'prompts/left', locals: { prompt: prompt } %>
-            <% end %>
-          <% end %>
+          <%= render partial: 'prompts/prompts', locals: { prompts: @prompts } %>
         </div>
 
         <div class="timeline-blog overflow">
-
-
           <div class="timeline-date text-center">
             <a class="btn btn-common" href="#">See More</a>
           </div>
