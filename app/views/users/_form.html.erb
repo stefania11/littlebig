@@ -1,6 +1,6 @@
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-    <div class="error_messages">
+    <div class="form-group error_messages">
       <h2>form is invalid</h2>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
@@ -10,22 +10,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, class: 'sr-only' %><br />
+    <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+  <div class="form-group">
+    <%= f.label :password, class: 'sr-only' %><br />
+    <%= f.password_field :password, placeholder: 'Password', class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: 'sr-only' %><br />
+    <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: 'form-control' %>
   </div><br />
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'SIGN UP', class: 'btn btn-submit' %>
   </div>
 <% end %>
