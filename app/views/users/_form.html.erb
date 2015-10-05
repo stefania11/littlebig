@@ -10,6 +10,10 @@
     </div>
   <% end %>
 
+  <% if @user.avatar? %>
+      <%= cl_image_tag(@user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :email, class: 'sr-only' %><br />
     <%= f.text_field :email, placeholder: 'Email', class: 'form-control' %>
@@ -26,6 +30,7 @@
   </div><br />
 
   <div class="form-group">
+    <%= f.label :avatar, class: 'sr-only' %><br />
     <%= f.attachinary_file_field :avatar %>
   </div><br />
 
