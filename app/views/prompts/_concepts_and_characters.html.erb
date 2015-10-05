@@ -1,0 +1,11 @@
+<p>
+  <div class="tag-cloud">
+    <ul class="nav nav-pills">
+      <% prompt.concepts_and_characters.each do |item| %>
+        <li>
+          <%= link_to item, item %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</p>

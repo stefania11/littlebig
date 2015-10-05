@@ -1,24 +1,12 @@
-<p>
-  <%= prompt.body %>
-  <%= link_to 'Show', prompt %>
-  <% if prompt.concepts.present? %>
-    <% prompt.concepts.each do |concept| %>
-      <%= link_to concept, concept %>
-    <% end %>
-  <% end %>
-  <% if prompt.characters.present? %>
-    <% prompt.characters.each do |character| %>
-      <%= link_to character, character %>
-    <% end %>
-  <% end %>
-
-  <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
-
-  <% if prompt.responses.present? %>
-    <ul>
+<ul class="<%= 'prompt-list' if prompt.responses.present? %>">
+  <li>
+    <%= link_to prompt.body, prompt %>
+    <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
+    <%= render partial: 'prompts/respond', locals: { prompt: @prompt } %>
+    <ul class="response-list">
       <% prompt.responses.each do |response| %>
         <li><%= render partial: 'prompts/prompt', locals: { prompt: response } %></li>
       <% end %>
     </ul>
-  <% end %>
-</p>
+  </li>
+</ul>
