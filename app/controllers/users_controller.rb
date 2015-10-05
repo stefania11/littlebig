@@ -17,6 +17,8 @@ class UsersController < ApplicationController
         flash[:notice] = "Password does not match."
       elsif @user.errors.messages == {:password=>["is too short (minimum is 6 characters)"]}
         flash[:notice] = "Passwords must be at least 6 characters long."
+      elsif @user.errors.messages == {:password_confirmation=>["doesn't match Password"], :email=>["has already been taken"], :password=>["is too short (minimum is 6 characters)"]}
+        flash[:notice] = "Please try again."
       else
         flash[:notice] = @user.errors.messages
       end
