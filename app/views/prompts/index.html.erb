@@ -6,7 +6,7 @@
           <%= link_to 'NEW PROMPT', new_prompt_path, class: 'btn btn-common uppercase', id: 'prompt_new', remote: true %>
         </div>
 
-        <div class="timeline-divider overflow padding-bottom">
+        <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">
           <%= render partial: 'prompts/prompts', locals: { prompts: @prompts } %>
         </div>
 
