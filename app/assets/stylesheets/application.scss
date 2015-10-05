@@ -5,3 +5,11 @@
 @import "lightbox";
 @import "main";
 @import "responsive";
+
+.panel-group .panel-footer {
+  margin-top: 20px
+}
+
+.panel-group {
+  border: none;
+}
