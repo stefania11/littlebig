@@ -4,6 +4,7 @@ class ConceptsController < ApplicationController
   # GET /concepts
   def index
     @concepts = Concept.all
+    @concept = Concept.new
   end
 
   # GET /concepts/1
