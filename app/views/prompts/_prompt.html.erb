@@ -1,21 +1,33 @@
 <div class="post-comment">
-    <div class="media-body">
-        <h4>
-          <%= link_to prompt.body, prompt %>
-        </h4>
-        <p>
+      <div class="single-blog timeline">
+        <div class="post-content overflow">
+          <h2 class="post-title bold">
+            <%= link_to prompt.body, prompt %>
+          </h2>
 
-        </p>
-        <ul class="nav navbar-nav post-nav">
-            <li>
+          <h3 class="post-author">
+            <%# TODO: Add in the associated user %>
+            <a href="#">Posted by a user</a>
+          </h3>
+
+          <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
+
+          <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+
+          <div class="post-bottom overflow">
+            <span class="post-date pull-left">
               <i class="fa fa-clock-o"></i>
               <%= time_ago_in_words prompt.created_at %> ago
-            </li>
-            <li>
-              <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
-            </li>
-        </ul>
-    </div>
+            </span>
+
+            <span class="comments-number pull-right">
+              <%= link_to prompt do %>
+                <%= pluralize prompt.responses.count, 'response' %>
+              <% end %>
+            </span>
+          </div>
+        </div>
+      </div>
 </div>
 <div class="parrent">
     <ul class="media-list">
