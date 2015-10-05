@@ -1,6 +1,8 @@
 <form class="form" action="<%= new_prompt_path %>" method="get">
   <input type="hidden" value="<%= prompt.id %>" name="prompt_id">
   <div class="text-right">
-  <input type="submit" value="Respond" class="btn btn-common uppercase">
+  <button type="submit" class="btn btn-common">
+    <i class="fa fa-reply"></i>
+  </button>
 </div>
 </form>
