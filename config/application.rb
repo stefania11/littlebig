@@ -22,6 +22,7 @@ module Littlebig
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-
+    # Establish Active Record as ORM for attachinary
+    require 'attachinary/orm/active_record'
   end
 end
