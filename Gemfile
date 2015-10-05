@@ -55,5 +55,6 @@ gem "font-awesome-rails"
 #Attachments, Photos, etc.
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'attachinary'
 
 gem 'rails_12factor', group: :production
