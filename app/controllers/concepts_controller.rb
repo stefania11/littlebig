@@ -25,7 +25,7 @@ class ConceptsController < ApplicationController
     @concept = Concept.new(concept_params)
 
     if @concept.save
-      redirect_to concepts_path, notice: 'Concept was successfully created.'
+      redirect_to @concept, notice: 'Concept was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class ConceptsController < ApplicationController
   # PATCH/PUT /concepts/1
   def update
     if @concept.update(concept_params)
-      redirect_to concepts_path, notice: 'Concept was successfully updated.'
+      redirect_to @concept, notice: 'Concept was successfully updated.'
     else
       render :edit
     end

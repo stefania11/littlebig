@@ -2,7 +2,6 @@
   <% if @character.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
-
       <ul>
       <% @character.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,7 +11,7 @@
   <% end %>
 
   <div class="field">
-    <%# f.label :name %>
+    <%= f.label :name, class:"sr-only" %>
     <%= f.text_field :name %><br><br>
   </div>
   <div class="actions">
