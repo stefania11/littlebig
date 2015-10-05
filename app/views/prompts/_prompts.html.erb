@@ -1,0 +1,7 @@
+<% prompts.each_with_index do |prompt, index| %>
+  <% if index.odd? %>
+    <%= render partial: 'prompts/right', locals: { prompt: prompt } %>
+  <% else %>
+    <%= render partial: 'prompts/left', locals: { prompt: prompt } %>
+  <% end %>
+<% end %>

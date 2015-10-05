@@ -1,16 +1,12 @@
-<section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+<section>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12 text-center">
-        <p>  <strong>Source:</strong>
+      <div class="row">
+        <div class="col-sm-10">
           <% if @prompt.source %>
-            <%= @prompt.source.body %>
-            <%= link_to 'Show', @prompt.source %>
-          <% else %>
-            No source for this one!
+            <%= link_to "(#{@prompt.source.body})", @prompt.source, class: 'source' %>
           <% end %>
-          <%= render partial: 'prompts/prompt', locals: { prompt: @prompt } %></p>
+          <%= render partial: 'prompts/prompt', locals: { prompt: @prompt } %>
+        </div>
       </div>
-    </div>
   </div>
 </section>

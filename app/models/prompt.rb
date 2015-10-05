@@ -8,12 +8,47 @@ class Prompt < ActiveRecord::Base
   has_many :relationships
   has_many :characters, through: :relationships
 
+  def concepts_and_characters
+    case
+    when concepts.present? && characters.present?
+      concepts + characters
+    when concepts.present?
+      concepts
+    when characters.present?
+      characters
+    else
+      []
+    end
+  end
+
   def prompt_id=(id)
     Prompt.find(id).responses << self
   end
 
   def concept_id=(id)
     Concept.find(id).prompts << self
+  end
+
+  def character_id=(id)
+    Character.find(id).prompts << self
+  end
+
+  def concept_list=(string)
+    # TODO: make this more robust, possibly a class?
+    concept_list = string.scan(/\w+/).map do |name|
+      Concept.find_or_create_by(name: name.downcase.titleize)
+    end
+
+    self.concepts += concept_list
+  end
+
+  def character_list=(string)
+    # TODO: make this more robust, possibly a class?
+    character_list = string.split(/\,/).map do |name|
+      Character.find_or_create_by(name: name.strip.downcase.titleize)
+    end
+
+    self.characters += character_list
   end
 
 end
