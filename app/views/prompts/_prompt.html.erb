@@ -1,12 +1,57 @@
-<ul class="<%= 'prompt-list' if prompt.responses.present? %>">
-  <li>
-    <%= link_to prompt.body, prompt %>
-    <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
-    <%= render partial: 'prompts/respond', locals: { prompt: @prompt } %>
-    <ul class="response-list">
-      <% prompt.responses.each do |response| %>
-        <li><%= render partial: 'prompts/prompt', locals: { prompt: response } %></li>
-      <% end %>
-    </ul>
-  </li>
-</ul>
+<div class="panel-group" id="accordion-<%= prompt.id %>">
+  <div class="panel panel-default single-blog timeline">
+    <div class="panel-heading post-content overflow">
+      <h2 class="post-title bold">
+        <%= link_to prompt.body, prompt %>
+      </h2>
+
+      <h3 class="post-author">
+        <%# TODO: Add in the associated user %>
+        <a href="#">By a user</a><br>
+      </h3>
+
+      <%# TODO: dynamically show photo button %>
+      <%# if prompt.photos.present? %>
+        <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>2">
+          Show images
+          <i class="fa fa-camera-retro"></i>
+        </a>
+      <%# end %>
+
+      <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
+
+      <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+
+    </div>
+
+    <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>">
+      <div class="panel-footer overflow">
+        <span class="post-date pull-left">
+          <i class="fa fa-clock-o"></i>
+          <%= time_ago_in_words prompt.created_at %>
+          ago
+        </span>
+
+        <span class="comments-number pull-right">
+          <%= pluralize prompt.responses.count, 'response' %>
+          <% if prompt.responses.present? %>
+          <i class="fa fa-angle-down"></i>
+          <% end %>
+        </span>
+      </div>
+    </a>
+    <div class="panel-collapse collapse out" id="collapse<%= prompt.id %>">
+      <div class="panel-body">
+        <%= render prompt.responses %>
+      </div>
+    </div>
+    <div class="panel-collapse collapse out" id="collapse<%= prompt.id %>2">
+      <div class="panel-body">
+        <%# TODO: Add photos %>
+        Hello, I am a photo.
+        <i class="fa fa-photo"></i>
+        <%# render prompt.responses.photos %>
+      </div>
+    </div>
+  </div>
+</div>

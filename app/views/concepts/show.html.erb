@@ -1,5 +1,4 @@
 
-
 <p>
   <strong>Concept:</strong>
   <%= link_to @concept, @concept %>
@@ -8,9 +7,9 @@
   <%= render partial: 'concepts/new_prompt', locals: { concept: @concept } %>
 </p>
 
-<% if @concept.prompts.present? %>
+<!-- <%# if @concept.prompts.present? %>
   <p>
-    <strong><%= pluralize @concept.prompts.count, 'related prompt' %>:</strong>
-    <%= render @concept.prompts %>
+    <strong><%# pluralize @concept.prompts.count, 'related prompt' %>:</strong>
+    <%# render @concept.prompts %>
   </p>
-<% end %>
+<%# end %> -->

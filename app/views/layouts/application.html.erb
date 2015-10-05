@@ -20,11 +20,11 @@
   <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png"> -->
 </head>
 <body>
-  <%= flash[:notice] %>
-  <%= flash[:alert] %>
   <%= render 'layouts/header' %>
+  <%= render 'layouts/flash' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= cloudinary_js_config %>
 </body>
 </html>

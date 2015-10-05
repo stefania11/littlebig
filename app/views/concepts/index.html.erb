@@ -1,4 +1,29 @@
-<h1>Listing Concepts</h1>
+<section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1>Concepts</h1>
+          <!-- all the tags -->
+          <div class="panel-body">
+            <div class="sidebar-item tag-cloud">
+              <ul class="nav nav-pills">
+                <% @concepts.each do |concept| %>
+                  <li><a href="/concepts/<%= concept.id %>"><%= concept.to_s %></a></li>
+                <% end %>
+              </ul>
+          </div>
+          <!-- end tag cloud -->
+          <p><%= render 'form' %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Saving this code for next draft: if we choose to add this functionality,
+when you click on a concept in the tag cloud, it pops to the top with AJAX
+and you can edit/delete it there.
 
 <table>
     <% @concepts.each do |concept| %>
@@ -12,8 +37,4 @@
         </td>
       </tr>
     <% end %>
-</table>
-
-<br>
-
-<%= link_to 'New Concept', new_concept_path %>
+</table> -->

@@ -29,6 +29,11 @@
     <input type="text" name="prompt[character_list]" class="form-control" placeholder="List characters...">
   </div>
 
+
+  <div class="form-group">
+    <%= f.attachinary_file_field :photos, label: 'Upload Attachment' %>
+  </div>
+
   <%# TODO: can this/should this be DRYer? More flexible? %>
   <% if @prompt_id %>
     <div class="form-group">

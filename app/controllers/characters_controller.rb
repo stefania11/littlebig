@@ -6,6 +6,7 @@ class CharactersController < ApplicationController
   # GET /characters.json
   def index
     @characters = Character.all
+    @character = Character.new
   end
 
   # GET /characters/1

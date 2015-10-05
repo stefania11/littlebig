@@ -1,12 +1,9 @@
 <section>
   <div class="container">
-      <div class="row">
-        <div class="col-sm-10">
-          <% if @prompt.source %>
-            <%= link_to "(#{@prompt.source.body})", @prompt.source, class: 'source', id: 'prompt_new' %>
-          <% end %>
-          <%= render partial: 'prompts/prompt', locals: { prompt: @prompt } %>
-        </div>
+    <div class="row">
+      <div id="accordion-container">
+        <%= render partial: 'prompts/prompt', locals: { prompt: @prompt }  %>
       </div>
+    </div>
   </div>
 </section>
