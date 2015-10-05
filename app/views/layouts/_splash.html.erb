@@ -5,7 +5,9 @@
             <div class="slide-text">
               <h1>Little answers,<br>for life's big questions.</h1>
               <p>A safe place to ask questions, tell stories, and explore your curiosity.</p>
+              <% unless user_signed_in? %>
               <a href="<%= new_user_path %>" class="btn btn-common">SIGN UP</a>
+              <% end %>
             </div>
             <img src="/images/home/slider/hill.png" class="slider-hill" alt="slider image">
             <!-- <img src="/images/home/slider/house.png" class="slider-house" alt="slider image"> -->
