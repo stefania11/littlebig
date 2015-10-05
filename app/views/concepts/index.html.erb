@@ -8,7 +8,7 @@
             <div class="sidebar-item tag-cloud">
               <ul class="nav nav-pills">
                 <% @concepts.each do |concept| %>
-                  <li><a href="#"><%= concept.to_s %></a></li>
+                  <li><a href="/concepts/<%= concept.id %>"><%= concept.to_s %></a></li>
                 <% end %>
               </ul>
           </div>
