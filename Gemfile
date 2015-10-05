@@ -51,4 +51,9 @@ end
 gem 'bootstrap-sass', '~> 3.3.5'
 gem "font-awesome-rails"
 
+
+#Attachments, Photos, etc.
+gem 'carrierwave'
+gem 'cloudinary'
+
 gem 'rails_12factor', group: :production
