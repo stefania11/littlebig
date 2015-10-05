@@ -1,6 +1,6 @@
 class PromptsController < ApplicationController
   before_action :set_prompt, only: [:show]
-  before_filter :authenticate_user!, only: [:edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /prompts
   def index
