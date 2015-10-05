@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :characters, :concepts
   resources :prompts, except: [:edit, :update, :destroy]
+
+  mount Attachinary::Engine => '/attachinary'
 end
