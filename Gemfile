@@ -57,4 +57,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'attachinary'
 
+#DRY up repsponders
+gem "responders"
+
 gem 'rails_12factor', group: :production
