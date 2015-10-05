@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   validates :email, presence: true, uniqueness: true
-  validates :password, length: { minimum: 6}
+  validates :password, length: { minimum: 6 }
+
+  has_attachment :avatar, accept: [:jpg, :png, :gif, :jpeg]
+  validates :avatar, presence: true
 end

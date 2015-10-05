@@ -1,9 +1,12 @@
 class ConceptsController < ApplicationController
   before_action :set_concept, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
 
   # GET /concepts
   def index
     @concepts = Concept.all
+    @concept = Concept.new
   end
 
   # GET /concepts/1

@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to prompts_path, notice: "You have succesfully signed in"
+      redirect_to prompts_path, notice: "You have successfully signed in"
     else
       redirect_to root_path, alert: "Your credentials were incorrect, try again"
     end
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: "You have succesfully logged out!"
+    redirect_to root_path, notice: "You have successfully logged out!"
   end
 end
