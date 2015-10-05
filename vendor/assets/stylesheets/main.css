@@ -1880,9 +1880,9 @@ span.stButton_gradient,
 }
 
 .post-comment{
-  padding-left: 70px;
-  padding-top: 36px;
-  border-top: 1px solid #f1e8dd;
+  /*padding-left: 70px;*/
+  /*padding-top: 36px;*/
+  /*border-top: 1px solid #f1e8dd;*/
 }
 
 .post-comment .pull-left img{
@@ -1893,7 +1893,8 @@ span.stButton_gradient,
 .post-comment .media-body{
   padding-top: 6px;
   border-bottom: 0;
-  padding-bottom: 50px;
+  /*padding-bottom: 50px;*/
+  padding-bottom: 0px;
 }
 
 .post-comment .media-body p{
@@ -1915,12 +1916,13 @@ span.stButton_gradient,
 }
 
 .parrent .media-list{
-  margin-left: 190px;
+  /*margin-left: 190px;*/
 }
 
 .parrent .post-comment{
   padding-left: 0;
   margin-left: 70px;
+  margin-left: 50px;
 }
 
 

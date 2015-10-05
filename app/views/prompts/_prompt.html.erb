@@ -1,12 +1,27 @@
-<ul class="<%= 'prompt-list' if prompt.responses.present? %>">
-  <li>
-    <%= link_to prompt.body, prompt %>
-    <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
-    <%= render partial: 'prompts/respond', locals: { prompt: @prompt } %>
-    <ul class="response-list">
+<div class="post-comment">
+    <div class="media-body">
+        <p>
+          <%= prompt.body %>
+        </p>
+        <ul class="nav navbar-nav post-nav">
+            <li>
+              <a href="#">
+                <i class="fa fa-clock-o"></i>
+                <%= time_ago_in_words prompt.created_at %> ago
+              </a>
+            </li>
+            <li>
+              <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="parrent">
+    <ul class="media-list">
       <% prompt.responses.each do |response| %>
-        <li><%= render partial: 'prompts/prompt', locals: { prompt: response } %></li>
+        <li class="post-comment reply">
+          <%= render partial: 'prompts/prompt', locals: { prompt: response } %>
+        </li>
       <% end %>
     </ul>
-  </li>
-</ul>
+</div>
