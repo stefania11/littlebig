@@ -1891,10 +1891,12 @@ span.stButton_gradient,
 }
 
 .post-comment .media-body{
-  padding-top: 6px;
-  border-bottom: 0;
+  padding: 10px;
+  /*border: 1px solid #999;*/
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 0 0 0 20px;
+  /*border-bottom: 0;*/
   /*padding-bottom: 50px;*/
-  padding-bottom: 0px;
 }
 
 .post-comment .media-body p{

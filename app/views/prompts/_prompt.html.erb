@@ -1,14 +1,15 @@
 <div class="post-comment">
     <div class="media-body">
+        <h4>
+          <%= link_to prompt.body, prompt %>
+        </h4>
         <p>
-          <%= prompt.body %>
+
         </p>
         <ul class="nav navbar-nav post-nav">
             <li>
-              <a href="#">
-                <i class="fa fa-clock-o"></i>
-                <%= time_ago_in_words prompt.created_at %> ago
-              </a>
+              <i class="fa fa-clock-o"></i>
+              <%= time_ago_in_words prompt.created_at %> ago
             </li>
             <li>
               <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
