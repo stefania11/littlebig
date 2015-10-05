@@ -25,6 +25,10 @@
     <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: 'form-control' %>
   </div><br />
 
+  <div class="form-group">
+    <%= f.attachinary_file_field :avatar %>
+  </div><br />
+
   <div class="actions">
     <%= f.submit 'SIGN UP', class: 'btn btn-submit' %>
   </div>
