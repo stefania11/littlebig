@@ -1,0 +1,9 @@
+if ($('form').last().find('input').val() % 2 == 0){
+  var partial = "<%= j render partial: 'characters/right', locals: { character: @character } %>"
+}else {
+  var partial = "<%= j render partial: 'characters/left', locals: { character: @character } %>"
+}
+
+$('#list_of_prompts').prepend(partial);
+
+$('#new_character').replaceWith("<%= j render 'characters/new_character_btn' %>")

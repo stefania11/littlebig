@@ -39,7 +39,7 @@ class CharactersController < ApplicationController
         format.js
       else
         format.html { render :new }
-        format.js { "alert('that didn't work!')"}
+        format.js { render js: "alert('Nope')" }
       end
     end
   end
