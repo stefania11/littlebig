@@ -1,0 +1,7 @@
+<% concepts.each_with_index do |concept, index| %>
+  <% if index.odd? %>
+    <%= render partial: 'concepts/right', locals: { concept: concept } %>
+  <% else %>
+    <%= render partial: 'concepts/left', locals: { concept: concept } %>
+  <% end %>
+<% end %>

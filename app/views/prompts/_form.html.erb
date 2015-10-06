@@ -30,9 +30,9 @@
   </div>
 
   <%# TODO: can this/should this be DRYer? More flexible? %>
-  <% if @prompt_id %>
+  <% if @source_id %>
     <div class="form-group">
-      <%= f.hidden_field :prompt_id, value: @prompt_id, class: 'form-control' %>
+      <%= f.hidden_field :source_id, value: @source_id, class: 'form-control' %>
     </div>
   <% end %>
 

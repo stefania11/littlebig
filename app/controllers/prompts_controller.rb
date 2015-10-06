@@ -13,12 +13,12 @@ class PromptsController < ApplicationController
 
   # GET /prompts/new
   def new
-    @prompt_id = params[:prompt_id]
+    @source_id = params[:source_id]
     @concept_id = params[:concept_id]
     @character_id = params[:character_id]
     @prompt = Prompt.new
     respond_to do |format|
-      format.html { redirect_to @prompt }
+      format.html
       format.js
     end
   end
@@ -57,6 +57,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:body, :prompt_id, :concept_id, :character_id, :concept_list, :character_list, :photos)
+      params.require(:prompt).permit(:body, :source_id, :concept_id, :character_id, :concept_list, :character_list, :photos)
     end
 end

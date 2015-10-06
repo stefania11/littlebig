@@ -1,0 +1,11 @@
+<p>
+  <div class="tag-cloud">
+    <ul class="nav nav-pills">
+      <% character.concepts.each do |concept| %>
+        <li>
+          <%= link_to concept, concept %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</p>

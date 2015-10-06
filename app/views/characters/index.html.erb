@@ -1,34 +1,21 @@
-<section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+<section id="blog" class="padding-bottom">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <h1>Characters</h1>
-          <!-- all the tags -->
-          <div class="panel-body">
-            <div class="sidebar-item tag-cloud">
-              <ul class="nav nav-pills">
-                <% @characters.each do |character| %>
-                  <li><a href="/characters/<%= character.id %>"><%= character.name %></a></li>
-                <% end %>
-              </ul>
+      <div class="timeline-blog overflow padding-top">
+        <div class="timeline-date text-center">
+          <%= link_to 'New Character', new_character_path, class: 'btn btn-common uppercase' %>
+        </div>
+
+        <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">
+          <%= render partial: 'characters/characters', locals: { characters: @characters } %>
+        </div>
+
+        <div class="timeline-blog overflow">
+          <div class="timeline-date text-center">
+            <a class="btn btn-common" href="#">See More</a>
           </div>
-          <!-- end tag cloud -->
-          <p><%= render 'form' %></p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Old content: preserving for reference when we add AJAX
-      <tr>
-        <%# @characters.each do |character| %>
-        <td><%# character.name %></td>
-        <td><%# link_to 'Show', character %></td>
-        <td><%# link_to 'Edit', edit_character_path(character) %></td>
-        <td><%# link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <%# end %>
-  </tbody>
-</table>
- -->

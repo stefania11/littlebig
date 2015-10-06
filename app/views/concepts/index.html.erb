@@ -1,40 +1,21 @@
-<section id="about-company" class="padding-top wow fadeInUp" data-wow-duration="400ms" data-wow-delay="400ms">
+<section id="blog" class="padding-bottom">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center">
-        <h1>Concepts</h1>
-          <!-- all the tags -->
-          <div class="panel-body">
-            <div class="sidebar-item tag-cloud">
-              <ul class="nav nav-pills">
-                <% @concepts.each do |concept| %>
-                  <li><a href="/concepts/<%= concept.id %>"><%= concept.to_s %></a></li>
-                <% end %>
-              </ul>
+      <div class="timeline-blog overflow padding-top">
+        <div class="timeline-date text-center">
+          <%= link_to 'New Concept', new_concept_path, class: 'btn btn-common uppercase' %>
+        </div>
+
+        <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">
+          <%= render partial: 'concepts/concepts', locals: { concepts: @concepts } %>
+        </div>
+
+        <div class="timeline-blog overflow">
+          <div class="timeline-date text-center">
+            <a class="btn btn-common" href="#">See More</a>
           </div>
-          <!-- end tag cloud -->
-          <p><%= render 'form' %></p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- Saving this code for next draft: if we choose to add this functionality,
-when you click on a concept in the tag cloud, it pops to the top with AJAX
-and you can edit/delete it there.
-
-<table>
-    <% @concepts.each do |concept| %>
-      <tr>
-        <td><%= concept.to_s %></td>
-        <td><%= link_to 'Show', concept %></td>
-        <td><%= link_to 'Edit', edit_concept_path(concept) %></td>
-        <td><%= link_to 'Destroy', concept, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td>
-          <%= render partial: 'concepts/new_prompt', locals: { concept: concept } %>
-        </td>
-      </tr>
-    <% end %>
-</table> -->
