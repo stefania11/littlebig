@@ -23,7 +23,7 @@ class Prompt < ActiveRecord::Base
     end
   end
 
-  def prompt_id=(id)
+  def source_id=(id)
     Prompt.find(id).responses << self
   end
 
