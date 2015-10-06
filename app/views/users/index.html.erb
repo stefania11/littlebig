@@ -3,11 +3,13 @@
     <div class="row">
       <div class="timeline-blog overflow padding-top">
         <div class="timeline-date text-center">
-          <%# link_to 'New Character', new_character_path, class: 'btn btn-common uppercase' %>
+          <p class="btn btn-common uppercase">
+            All users
+          </p>
         </div>
 
         <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">
-          <%# render partial: 'characters/characters', locals: { characters: @characters } %>
+          <%= render partial: 'users/users', locals: { users: @users } %>
         </div>
 
         <div class="timeline-blog overflow">
