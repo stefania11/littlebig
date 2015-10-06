@@ -1,15 +1,56 @@
-
-<p>
-  <strong>Concept:</strong>
-  <%= link_to @concept, @concept %>
-  <%= link_to 'Edit', edit_concept_path(@concept) %> |
-  <%= link_to 'Destroy', @concept, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <%= render partial: 'concepts/new_prompt', locals: { concept: @concept } %>
-</p>
-
-<!-- <%# if @concept.prompts.present? %>
-  <p>
-    <strong><%# pluralize @concept.prompts.count, 'related prompt' %>:</strong>
-    <%# render @concept.prompts %>
-  </p>
-<%# end %> -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h1><%= @concept.name %></h1>
+      </div>
+      <div class="tab-container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs" id="tab1">
+              <li class="active">
+                <a data-toggle="tab" href="#tab1-item1" class="uppercase">Overview</a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#tab1-item2" class="uppercase">Characters</a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#tab1-item3" class="uppercase">Prompts</a>
+              </li>
+              <li>
+                <%= link_to edit_concept_path(@concept), class: 'uppercase' do %>
+                  Edit
+                  <i class="fa fa-pencil-square-o"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to @concept, method: :delete, data: { confirm: 'Are you sure?' }, class: 'uppercase' do %>
+                  Delete
+                  <i class="fa fa-remove"></i>
+                <% end %>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade active in" id="tab1-item1">
+                <p>Top rated answer goes here?</p>
+              </div>
+              <div class="tab-pane fade" id="tab1-item2">
+                <%= render partial: 'concepts/characters', locals: { concept: @concept } %>
+              </div>
+              <div class="tab-pane fade" id="tab1-item3">
+                <h3 class="text-center">
+                  <%= pluralize @concept.prompts.count, 'related prompt' %>
+                </h3>
+                <div id="accordion-container">
+                  <% @concept.prompts.each do |prompt| %>
+                    <%= render partial: 'prompts/prompt', locals: { prompt: prompt }  %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
