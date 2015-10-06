@@ -19,7 +19,9 @@
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
-        <%= time_ago_in_words concept.prompts.last.created_at %> ago
+        <% if concept.prompts.present? %>
+          <%= time_ago_in_words concept.prompts.last.created_at %> ago
+        <% end %>
       </span>
 
       <span class="comments-number pull-right">

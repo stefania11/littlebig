@@ -16,6 +16,10 @@ class ConceptsController < ApplicationController
   # GET /concepts/new
   def new
     @concept = Concept.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /concepts/1/edit

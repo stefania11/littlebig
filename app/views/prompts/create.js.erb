@@ -1,8 +1,7 @@
-$('#prompt_new_btn').show();
 if ($('form').last().find('input').val() %2 == 0){
   var partial = "<%= j render partial: 'prompts/right', locals: { prompt: @prompt } %>"
 }else {
   var partial = "<%= j render partial: 'prompts/left', locals: { prompt: @prompt } %>"
 }
 $('#list_of_prompts').prepend(partial);
-$('#new_prompt').hide();
+$('#new_prompt').replaceWith('<%= j render 'new_prompt_btn' %>')
