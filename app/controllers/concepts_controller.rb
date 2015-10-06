@@ -17,7 +17,7 @@ class ConceptsController < ApplicationController
   def new
     @concept = Concept.new
     respond_to do |format|
-      format.html { redirect_to @concept }
+      format.html
       format.js
     end
   end
