@@ -1,14 +1,4 @@
 <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="form-group error_messages">
-      <h2>form is invalid</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <% if @user.avatar? %>
       <%= cl_image_tag(@user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
