@@ -11,12 +11,12 @@
       </h3>
 
       <%# TODO: dynamically show photo button %>
-      <%# if prompt.images.present? %>
+      <% if prompt.images.present? %>
         <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>2">
           Show images
           <i class="fa fa-camera-retro"></i>
         </a>
-      <%# end %>
+      <% end %>
 
       <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
 
@@ -47,8 +47,7 @@
     </div>
     <div class="panel-collapse collapse out" id="collapse<%= prompt.id %>2">
       <div class="panel-body">
-        <%# TODO: Add photos %>
-        Hello, I am a photo.
+        <%= render prompt.images  %>
         <i class="fa fa-photo"></i>
         <%# render prompt.responses.photos %>
       </div>

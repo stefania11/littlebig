@@ -16,7 +16,14 @@
     <%= f.text_area :body, placeholder: "Tell us what you know—or what you don't!", class: 'form-control' %>
   </div>
 
+
   <h3>Optional...</h3>
+
+  <% if @source_id %>
+    <div class="form-group">
+      <%= f.attachinary_file_field :images %>
+    </div>
+  <% end %>
 
   <%# TODO: Should this be a form_tag? %>
   <div class="form-group">
