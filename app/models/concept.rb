@@ -3,6 +3,8 @@ class Concept < ActiveRecord::Base
   has_many :prompts, through: :topics
   has_many :characters, through: :prompts
 
+  validates :name, uniqueness: true, presence: true
+
   before_save :normalize_name
 
   def characters
