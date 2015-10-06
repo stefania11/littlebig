@@ -1,0 +1,27 @@
+<div class="single-blog timeline">
+  <div class="post-content overflow">
+    <h2 class="post-title bold">
+      <%= link_to character.name, character %>
+    </h2>
+
+    <h3 class="post-author">
+      <%# TODO: Add in the associated user %>
+      <a href="#">First mentioned by a user</a>
+    </h3>
+
+    <%= render partial: 'characters/new_prompt', locals: { character: character } %>
+
+    <div class="post-bottom overflow">
+      <span class="post-date pull-left">
+        <i class="fa fa-clock-o"></i>
+        <%= time_ago_in_words character.created_at %> ago
+      </span>
+
+      <span class="comments-number pull-right">
+        <%= link_to character do %>
+          <%= pluralize character.prompts.count, 'mention' %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</div>

@@ -6,10 +6,7 @@
   <%= link_to @character, @character %>
   <%= link_to 'Edit', edit_character_path(@character) %> |
   <%= link_to 'Destroy', @character, method: :delete, data: { confirm: 'Are you sure?' } %>
-  <form class="" action="<%= new_prompt_path %>" method="get">
-    <input type="hidden" name="character_id" value="<%= @character.id %>">
-    <input type ="submit" value="Create new prompts associated with this character">
-  </form>
+
   <% if @character.prompts.present? %>
     <p>
       <strong><%= pluralize @character.prompts.count, 'related prompt' %>:</strong>
