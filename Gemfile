@@ -46,6 +46,8 @@ group :development do
   gem 'spring'
 end
 
+# Seeding
+gem 'faker'
 
 # Theme
 gem 'bootstrap-sass', '~> 3.3.5'
