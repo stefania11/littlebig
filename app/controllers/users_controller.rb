@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -16,7 +21,25 @@ class UsersController < ApplicationController
   end
 
   def show
-    #code
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: 'Updated successfully!'
+    else
+      render 'edit', alert: 'Unable to update... try again.'
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      redirect_to root_path, notice: "You deleted yo' self"
+    else
+      redirect_to @user, alert: 'Unable to destroy... try again.'
+    end
   end
 
   private
