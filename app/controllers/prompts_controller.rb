@@ -26,6 +26,7 @@ class PromptsController < ApplicationController
   # POST /prompts
   def create
     @prompt = Prompt.new(prompt_params)
+    @prompt.user = current_user
 
     respond_to do |format|
       format.html {
@@ -57,6 +58,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:body, :source_id, :concept_id, :character_id, :concept_list, :character_list, :photos)
+      params.require(:prompt).permit(:body, :user_id, :source_id, :concept_id, :character_id, :concept_list, :character_list, :photos)
     end
 end

@@ -1,4 +1,4 @@
-<%= form_for@prompt, remote: true do |f| %>
+<%= form_for @prompt do |f| %>
   <% if @prompt.errors.any? %>
     <div id="error_explanation" class="form-group">
       <h2><%= pluralize(@prompt.errors.count, "error") %> prohibited this prompt from being saved:</h2>
