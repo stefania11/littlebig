@@ -5,12 +5,13 @@
     </h2>
 
     <h3 class="post-author">
-      <a href="#">Posted by <%= prompt.user.username %></a>
+      <a href="#">By <%= prompt.user.username %></a>
     </h3>
 
     <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
 
     <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+
 
     <div class="post-bottom overflow">
       <span class="post-date pull-left">

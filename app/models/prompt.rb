@@ -10,7 +10,7 @@ class Prompt < ActiveRecord::Base
   has_many :relationships
   has_many :characters, through: :relationships
 
-  has_attachments :photos, maximum: 3
+  has_attachments :images, maximum: 3
 
   def concepts_and_characters
     case
