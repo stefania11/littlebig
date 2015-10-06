@@ -3,8 +3,12 @@
     <li class="<%= 'active' if request.original_fullpath == prompts_path %>">
       <%= link_to 'Prompts', prompts_path %>
     </li>
-    <li class="<%= 'active' if request.original_fullpath == characters_path %>">
-      <%= link_to 'Characters', characters_path %>
+    <li class="dropdown <%= 'active' if request.original_fullpath == characters_path %>">
+      <a href="#">People<i class="fa fa-angle-down"></i></a>
+        <ul role="menu" class="sub-menu">
+          <li><%= link_to 'Characters', characters_path %></li>
+          <li><%= link_to 'Users', users_path %></li>
+        </ul>
     </li>
     <li class="<%= 'active' if request.original_fullpath == concepts_path %>">
       <%= link_to 'Concepts', concepts_path %>
