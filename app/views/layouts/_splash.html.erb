@@ -5,11 +5,13 @@
             <div class="slide-text">
               <h1>Little answers,<br>for life's big questions.</h1>
               <p>A safe place to ask questions, tell stories, and explore your curiosity.</p>
-              <a href="<%= new_user_path %>" class="btn btn-common">SIGN UP</a>
+              <% if user_signed_in? %>
+                <%= link_to 'New Prompt', new_prompt_path, class: 'btn btn-common uppercase' %>
+              <% else %>
+                <%= link_to 'Sign Up', new_user_path, class: 'btn btn-common uppercase' %>
+              <% end %>
             </div>
             <img src="/images/home/slider/hill.png" class="slider-hill" alt="slider image">
-            <!-- <img src="/images/home/slider/house.png" class="slider-house" alt="slider image"> -->
-            <!-- <img src="/images/home/slider/sun.png" class="slider-sun" alt="slider image"> -->
             <img src="/images/home/slider/birds1.png" class="slider-birds1" alt="slider image">
             <img src="/images/home/slider/birds2.png" class="slider-birds2" alt="slider image">
         </div>
