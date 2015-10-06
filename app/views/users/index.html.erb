@@ -1,0 +1,23 @@
+<section id="blog" class="padding-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="timeline-blog overflow padding-top">
+        <div class="timeline-date text-center">
+          <p class="btn btn-common uppercase">
+            All users
+          </p>
+        </div>
+
+        <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">
+          <%= render partial: 'users/users', locals: { users: @users } %>
+        </div>
+
+        <div class="timeline-blog overflow">
+          <div class="timeline-date text-center">
+            <a class="btn btn-common" href="#">See More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

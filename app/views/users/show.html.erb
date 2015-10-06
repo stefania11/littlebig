@@ -1,0 +1,63 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="text-center">
+        <h1><%= @user.email %></h1>
+      </div>
+      <div class="tab-container">
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs" id="tab1">
+              <li class="active">
+                <a data-toggle="tab" href="#tab1-item1">BIO</a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#tab1-item2">CONCEPTS</a>
+              </li>
+              <li>
+                <a data-toggle="tab" href="#tab1-item3">PROMPTS</a>
+              </li>
+              <% if current_user == @user %>
+                <li>
+                  <%= link_to edit_user_path(@user) do %>
+                    EDIT
+                    <i class="fa fa-pencil-square-o"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to @user, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    DELETE
+                    <i class="fa fa-remove"></i>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane fade active in" id="tab1-item1">
+                <p>Goosefish sind danio Alaska blackfish trout-perch swordfish orbicular batfish bigmouth buffalo." Trout cod Bitterling cownose ray creek chub, "swallower," saury armoured catfish loach pilot fish. Armoured catfish guitarfish gudgeon, great white
+                  shark earthworm eel beluga sturgeon Asiatic glassfish, toadfish. Sea dragon African glass catfish spaghetti eel bandfish carp rock beauty: round stingray midshipman livebearer. Russian sturgeon john dory fusilier fish eeltail catfish marlin desert
+                  pupfish, golden trout: roundhead lake whitefish; croaker. King of herring longfin escolar Reef triggerfish arowana Manta Ray Atlantic cod. Houndshark streamer fish; fingerfish longnose chimaera thorny catfish collared dogfish cuskfish thornfish.
+                  Airsac catfish eelpout Asian carps rockweed gunnel wolf-eel mustard eel, burrowing goby redmouth whalefish whale catfish. Loach minnow tubeshoulder lamprey rough sculpin electric eel.</p>
+              </div>
+              <div class="tab-pane fade" id="tab1-item2">
+                <%# TODO: Associate concepts through user's prompts %>
+                <%# render partial: 'users/concepts', locals: { user: @user } %>
+              </div>
+              <div class="tab-pane fade" id="tab1-item3">
+                <h3 class="text-center">
+                  <%# TODO: Associate prompts to user %>
+                  <%# pluralize @user.prompts.count, 'related prompt' %>
+                </h3>
+                <div id="accordion-container">
+                  <%# @user.prompts.each do |prompt| %>
+                    <%# render partial: 'prompts/prompt', locals: { prompt: prompt }  %>
+                  <%# end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
