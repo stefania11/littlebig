@@ -3,7 +3,7 @@
     <div class="row">
       <div class="timeline-blog overflow padding-top">
         <div class="timeline-date text-center">
-          <%= link_to 'New Character', new_character_path, class: 'btn btn-common uppercase' %>
+          <%= link_to 'New Character', new_character_path, id: 'new_character_btn',class: 'btn btn-common uppercase', remote: true %>
         </div>
 
         <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">

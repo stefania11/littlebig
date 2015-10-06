@@ -17,6 +17,11 @@ class CharactersController < ApplicationController
   # GET /characters/new
   def new
     @character = Character.new
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /characters/1/edit
@@ -31,10 +36,10 @@ class CharactersController < ApplicationController
     respond_to do |format|
       if @character.save
         format.html { redirect_to @character, notice: 'Character was successfully created.' }
-        format.json { render :show, status: :created, location: @character }
+        format.js
       else
         format.html { render :new }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
+        format.js { "alert('that didn't work!')"}
       end
     end
   end
