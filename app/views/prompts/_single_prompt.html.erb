@@ -5,8 +5,7 @@
     </h2>
 
     <h3 class="post-author">
-      <%# TODO: Add in the associated user %>
-      <a href="#">Posted by a user</a>
+      <a href="#">Posted by <%= prompt.user.username %></a>
     </h3>
 
     <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>

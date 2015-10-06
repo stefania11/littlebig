@@ -1,18 +1,13 @@
 <%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="form-group error_messages">
-      <h2>form is invalid</h2>
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <% if @user.avatar? %>
       <%= cl_image_tag(@user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
   <% end %>
+
+  <div class="form-group">
+    <%= f.label :username, class: 'sr-only' %><br />
+    <%= f.text_field :username, placeholder: 'Username', class: 'form-control' %>
+  </div>
 
   <div class="form-group">
     <%= f.label :email, class: 'sr-only' %><br />
@@ -27,9 +22,9 @@
   <div class="form-group">
     <%= f.label :password_confirmation, class: 'sr-only' %><br />
     <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: 'form-control' %>
-  </div><br />
+  </div>
 
   <div class="actions">
-    <%= f.submit 'SIGN UP', class: 'btn btn-submit' %>
+    <%= f.submit class: 'btn btn-submit' %>
   </div>
 <% end %>

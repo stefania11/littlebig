@@ -11,11 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field" id="concept_new_form">
+
+  <div class="form-group">
     <%= f.label :name, class:"sr-only" %>
-    <%= f.text_field :name %><br><br>
+    <%= f.text_field :name, placeholder: "Concept", class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit%>
+  <div class="form-group">
+    <%= f.submit class: 'btn-submit' %>
   </div>
 <% end %>

@@ -14,7 +14,7 @@ helper_method :user_signed_in?, :current_user #makes it available in all the vie
 
   def authenticate_user!
     unless user_signed_in?
-      redirect_to root_path, alert: "You must be logged in to do that"
+      redirect_to root_path, alert: "You must be logged in to do that!"
     end
   end
 end

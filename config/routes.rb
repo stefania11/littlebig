@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-  resources :users, only: [:new, :create]
+  resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :characters, :concepts
   resources :prompts, except: [:edit, :update, :destroy]

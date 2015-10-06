@@ -1,4 +1,4 @@
-<%= form_for@prompt, remote: true do |f| %>
+<%= form_for @prompt do |f| %>
   <% if @prompt.errors.any? %>
     <div id="error_explanation" class="form-group">
       <h2><%= pluralize(@prompt.errors.count, "error") %> prohibited this prompt from being saved:</h2>
@@ -30,9 +30,9 @@
   </div>
 
   <%# TODO: can this/should this be DRYer? More flexible? %>
-  <% if @prompt_id %>
+  <% if @source_id %>
     <div class="form-group">
-      <%= f.hidden_field :prompt_id, value: @prompt_id, class: 'form-control' %>
+      <%= f.hidden_field :source_id, value: @source_id, class: 'form-control' %>
     </div>
   <% end %>
 

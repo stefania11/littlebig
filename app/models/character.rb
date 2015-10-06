@@ -1,13 +1,22 @@
 class Character < ActiveRecord::Base
   has_many :relationships
   has_many :prompts, through: :relationships
+  has_many :concepts, through: :prompts
   before_save :normalize_name
+
+  def concepts
+    super.uniq
+  end
 
   def normalize_name
     name.downcase.titleize
   end
 
   def to_s
-    "##{name}"
+    name
+  end
+
+  def hash_tag
+    "##{name.downcase.gsub(' ', '')}"
   end
 end

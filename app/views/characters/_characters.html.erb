@@ -1,0 +1,7 @@
+<% characters.each_with_index do |character, index| %>
+  <% if index.odd? %>
+    <%= render partial: 'characters/right', locals: { character: character } %>
+  <% else %>
+    <%= render partial: 'characters/left', locals: { character: character } %>
+  <% end %>
+<% end %>

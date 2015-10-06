@@ -3,19 +3,19 @@
     <div class="row">
       <div class="timeline-blog overflow padding-top">
         <div class="timeline-date text-center">
-          <%= link_to 'New Concept', new_concept_path, class: 'btn btn-common uppercase' %>
+          <p class="btn btn-common uppercase">
+            All users
+          </p>
         </div>
 
         <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">
-          <%= render partial: 'concepts/concepts', locals: { concepts: @concepts } %>
+          <%= render partial: 'users/users', locals: { users: @users } %>
         </div>
 
         <div class="timeline-blog overflow">
           <div class="timeline-date text-center">
             <a class="btn btn-common" href="#">See More</a>
           </div>
-          <!-- end tag cloud -->
-          <p><%= render partial:'concepts/new_concept_btn' %></p>
         </div>
       </div>
     </div>
