@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       redirect_to prompts_path, notice: "You have created yo' self!"
       session[:user_id] = @user.id
     else
+      # TODO: refactor; put custom messages in the model & simplify our rendering of notices
       if @user.errors.messages == {:password=>["can't be blank"]}
         flash[:notice] = "Please enter a password."
       elsif @user.errors.messages == {:email=>["has already been taken"]}
