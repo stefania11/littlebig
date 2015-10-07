@@ -1,0 +1,7 @@
+if (<%=@concept.id%> %2 === 0){
+  var partial = "<%= j render partial: 'concepts/right', locals: { concept: @concept } %>"
+}else {
+  var partial = "<%= j render partial: 'concepts/left', locals: { concept: @concept } %>"
+}
+$('#list_of_prompts').prepend(partial);
+$('#new_concept').replaceWith("<%= j render 'concepts/new_concept_btn' %>")
