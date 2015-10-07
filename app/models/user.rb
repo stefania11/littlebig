@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :prompts
+  has_many :characters
+  has_many :concepts
 
   has_secure_password
 

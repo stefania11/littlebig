@@ -4,10 +4,11 @@
       <%= link_to character.name, character %>
     </h2>
 
+    <% if character.user %>
     <h3 class="post-author">
-      <%# TODO: Add in the associated user %>
-      <a href="#">First mentioned by a user</a>
+      <a href="#">By <%= character.user.username %></a><br>
     </h3>
+    <% end %>
 
     <%# TODO: Create an editable bio for each character? %>
     <p>
@@ -19,7 +20,11 @@
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
-        <%= time_ago_in_words character.prompts.last.created_at %> ago
+        <% if character.prompts.any? %>
+          <%= time_ago_in_words character.prompts.last.created_at %> ago
+        <% else %>
+          <%= time_ago_in_words character.created_at %> ago
+        <% end %>
       </span>
 
       <span class="comments-number pull-right">

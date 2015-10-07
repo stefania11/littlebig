@@ -29,7 +29,7 @@ class ConceptsController < ApplicationController
   # POST /concepts
   def create
     @concept = Concept.new(concept_params)
-
+    @concept.user = current_user
     if @concept.save
       redirect_to @concept, notice: 'Concept was successfully created.'
     else
