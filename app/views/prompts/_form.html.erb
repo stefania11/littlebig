@@ -20,7 +20,7 @@
 
   <% if @source_id %>
     <div class="form-group">
-      <%= attachinary_file_field_tag 'prompt[images]', @prompt, :images  %>
+      <%= f.attachinary_file_field :images %>
     </div>
   <% end %>
 
@@ -39,12 +39,6 @@
   <% if @source_id %>
     <div class="form-group">
       <%= f.hidden_field :source_id, value: @source_id, class: 'form-control' %>
-    </div>
-  <% end %>
-
-  <% if @image_id %>
-    <div class="form-group">
-      <%= f.hidden_field :image_id, value: @image_id, class: 'form-control' %>
     </div>
   <% end %>
 

@@ -11,7 +11,7 @@ class Prompt < ActiveRecord::Base
   has_many :relationships
   has_many :characters, through: :relationships
 
-  has_attachments :images, maximum: 3
+  has_attachments :images, maximum: 3, accept: [:jpg, :png, :gif, :jpeg]
 
   validates :body, presence: true
 
@@ -42,10 +42,6 @@ class Prompt < ActiveRecord::Base
 
   def character_id=(id)
     Character.find(id).prompts << self
-  end
-
-  def image_id=(id)
-    Prompt.find(id).images << self
   end
 
   def concept_list=(string)

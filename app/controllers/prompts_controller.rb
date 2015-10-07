@@ -15,6 +15,8 @@ class PromptsController < ApplicationController
   def new
     @concept_id = params[:concept_id]
     @character_id = params[:character_id]
+    @source_id = params[:source_id]
+
     @prompt = Prompt.new
     respond_to do |format|
       format.html
@@ -26,8 +28,6 @@ class PromptsController < ApplicationController
   def create
     # TODO: refactor
     @prompt = current_user.prompts.new(prompt_params)
-    @prompt = Prompt.new(prompt_params)
-    @prompt.user = current_user
     if @prompt.concepts
       @prompt.concepts.each do |concept|
         concept.user = current_user
@@ -64,6 +64,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:body, :user_id, :source_id, :concept_id, :character_id, :concept_list, :character_list, :images_id)
+      params.require(:prompt).permit(:body, :user_id, :source_id, :concept_id, :character_id, :concept_list, :character_list, {images: []})
     end
 end
