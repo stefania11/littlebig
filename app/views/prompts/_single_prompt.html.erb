@@ -10,7 +10,9 @@
 
     <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
 
-    <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+    <% if prompt.responders.exclude? current_user %>
+      <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+    <% end %>
 
     <%= render partial: 'prompts/single_prompt_footer', locals: { prompt: prompt } %>
   </div>
