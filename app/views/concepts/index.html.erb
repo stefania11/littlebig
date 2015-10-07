@@ -3,7 +3,7 @@
     <div class="row">
       <div class="timeline-blog overflow padding-top">
         <div class="timeline-date text-center">
-          <%= link_to 'New Concept', new_concept_path, class: 'btn btn-common uppercase' %>
+          <%= render 'concepts/new_concept_btn' %>
         </div>
 
         <div class="timeline-divider overflow padding-bottom" id= "list_of_prompts">
@@ -14,8 +14,6 @@
           <div class="timeline-date text-center">
             <a class="btn btn-common" href="#">See More</a>
           </div>
-          <!-- end tag cloud -->
-          <p><%= render partial:'concepts/new_concept_btn' %></p>
         </div>
       </div>
     </div>
