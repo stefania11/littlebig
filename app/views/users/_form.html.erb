@@ -24,6 +24,13 @@
     <%= f.password_field :password_confirmation, placeholder: 'Password confirmation', class: 'form-control' %>
   </div>
 
+<% if user_signed_in? %>
+  <div class="form-group">
+    <%= f.label :bio, class: 'sr-only' %><br />
+    <%= f.text_area :bio, placeholder: 'Bio', class: 'form-control' %>
+  </div>
+<% end %>
+
   <div class="actions">
     <%= f.submit class: 'btn btn-submit' %>
   </div>
