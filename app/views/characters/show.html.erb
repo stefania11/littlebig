@@ -6,7 +6,7 @@
       </div>
       <% if @character.user %>
       <h3 class="post-author">
-        <a href="#">By <%= @character.user.username %></a><br>
+        <a href="/users/<%= @character.user.id %>">First added by <%= @character.user.username %></a><br>
       </h3>
       <% end %>
       <div class="tab-container">

@@ -17,6 +17,10 @@
     <%= f.text_field :name, placeholder: "Concept", class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :overview, class:"sr-only" %>
+    <%= f.text_area :overview, placeholder: "Overview", class: 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.submit class: 'btn-submit' %>
   </div>
 <% end %>
