@@ -19,10 +19,9 @@
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
-        <% if character.prompts.any? %>
+
+        <% if character.prompts.present? %>
           <%= time_ago_in_words character.prompts.last.created_at %> ago
-        <% else %>
-          <%= time_ago_in_words character.created_at %> ago
         <% end %>
       </span>
 
