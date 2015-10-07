@@ -36,7 +36,6 @@ class ConceptsController < ApplicationController
       else
         format.html { render :new }
         format.js { render js: "alert('Nope')" }
-      end
     end
   end
 
@@ -61,6 +60,6 @@ class ConceptsController < ApplicationController
     end
 
     def concept_params
-      params.require(:concept).permit(:name)
+      params.require(:concept).permit(:name, :overview)
     end
 end

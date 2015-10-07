@@ -1,4 +1,5 @@
 class Character < ActiveRecord::Base
+  belongs_to :user
   has_many :relationships
   has_many :prompts, through: :relationships
   has_many :concepts, through: :prompts
