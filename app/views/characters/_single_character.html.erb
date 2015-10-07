@@ -4,14 +4,14 @@
       <%= link_to character.name, character %>
     </h2>
 
+    <% if character.user %>
     <h3 class="post-author">
-      <%# TODO: Add in the associated user %>
-      <a href="#">First mentioned by a user</a>
+      <a href="/users/<%= character.user.id %>">By <%= character.user.username %></a><br>
     </h3>
+    <% end %>
 
-    <%# TODO: Create an editable bio for each character? %>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <%= character.bio %>
     </p>
 
     <%= render partial: 'characters/new_prompt', locals: { character: character } %>
@@ -19,7 +19,10 @@
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
-        <%= time_ago_in_words character.prompts.last.created_at %> ago
+
+        <% if character.prompts.present? %>
+          <%= time_ago_in_words character.prompts.last.created_at %> ago
+        <% end %>
       </span>
 
       <span class="comments-number pull-right">

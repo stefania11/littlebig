@@ -6,8 +6,7 @@
       </h2>
 
       <h3 class="post-author">
-        <%# TODO: Add in the associated user %>
-        <a href="#">By <%= prompt.user.username %></a><br>
+        <a href="/users/<%= prompt.user.id %>">By <%= prompt.user.username %></a><br>
       </h3>
       <% if prompt.images.present? %>
         <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>2">

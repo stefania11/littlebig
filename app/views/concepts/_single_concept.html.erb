@@ -3,15 +3,14 @@
     <h2 class="post-title bold">
       <%= link_to concept.name, concept %>
     </h2>
+    <% if concept.user %>
+      <h3 class="post-author">
+        <a href="/users/<%= concept.user.id %>">Posted by <%= concept.user.username %></a>
+      </h3>
+    <% end %>
 
-    <h3 class="post-author">
-      <%# TODO: Add in the associated user %>
-      <a href="#">First mentioned by a user</a>
-    </h3>
-
-    <%# TODO: Create an editable bio for each concept? %>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <%= concept.overview %>
     </p>
 
     <%= render partial: 'concepts/new_prompt', locals: { concept: concept } %>
