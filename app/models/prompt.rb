@@ -39,6 +39,10 @@ class Prompt < ActiveRecord::Base
     Character.find(id).prompts << self
   end
 
+  def image_id=(id)
+    Prompt.find(id).images << self
+  end
+
   def concept_list=(string)
     # TODO: make this more robust, possibly a class?
     concept_list = string.scan(/\w+/).map do |name|

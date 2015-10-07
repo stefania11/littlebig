@@ -43,6 +43,12 @@
     </div>
   <% end %>
 
+  <% if @image_id %>
+    <div class="form-group">
+      <%= f.hidden_field :image_id, value: @image_id, class: 'form-control' %>
+    </div>
+  <% end %>
+
   <% if @concept_id %>
     <div class="form-group">
       <%= f.hidden_field :concept_id, value: @concept_id, class: 'form-control' %>
@@ -54,6 +60,7 @@
       <%= f.hidden_field :character_id, value: @character_id, class: 'form-control' %>
     </div>
   <% end %>
+
 
   <div class="actions">
     <%= f.submit class: 'btn btn-submit' %>
