@@ -9,7 +9,6 @@
         <%# TODO: Add in the associated user %>
         <a href="#">By <%= prompt.user.username %></a><br>
       </h3>
-
       <% if prompt.images.present? %>
         <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>2">
           Show images
@@ -48,7 +47,6 @@
       <div class="panel-body">
         <% @prompt.images.each do |image| %>
         <%= cl_image_tag(image.path, { size: '125x125', crop: :fit }) %><% end %>
-        <i class="fa fa-photo"></i>
       </div>
     </div>
   </div>

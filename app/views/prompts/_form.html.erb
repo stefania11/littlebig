@@ -20,7 +20,7 @@
 
   <% if @source_id %>
     <div class="form-group">
-      <%= f.attachinary_file_field :images %>    
+      <%= attachinary_file_field_tag 'prompt[images]', @prompt, :images  %>
     </div>
   <% end %>
 
