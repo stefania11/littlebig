@@ -29,11 +29,14 @@ class ConceptsController < ApplicationController
   # POST /concepts
   def create
     @concept = Concept.new(concept_params)
-
-    if @concept.save
-      redirect_to @concept, notice: 'Concept was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @concept.save
+        format.html { redirect_to @concept, notice: 'Concept was successfully created.' }
+        format.js
+      else
+        format.html { render :new }
+        format.js { render js: "alert('Nope')" }
+      end
     end
   end
 
