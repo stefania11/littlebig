@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151006135643) do
+ActiveRecord::Schema.define(version: 20151007151801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,21 @@ ActiveRecord::Schema.define(version: 20151006135643) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.text     "bio"
   end
+
+  add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "concepts", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.text     "overview"
   end
+
+  add_index "concepts", ["user_id"], name: "index_concepts_on_user_id", using: :btree
 
   create_table "prompts", force: :cascade do |t|
     t.text     "body"
@@ -88,6 +96,8 @@ ActiveRecord::Schema.define(version: 20151006135643) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "characters", "users"
+  add_foreign_key "concepts", "users"
   add_foreign_key "prompts", "users"
   add_foreign_key "relationships", "characters"
   add_foreign_key "relationships", "prompts"

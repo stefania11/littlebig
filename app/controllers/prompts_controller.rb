@@ -24,8 +24,16 @@ class PromptsController < ApplicationController
 
   # POST /prompts
   def create
+    # TODO: refactor
     @prompt = current_user.prompts.new(prompt_params)
-
+    @prompt = Prompt.new(prompt_params)
+    @prompt.user = current_user
+    if @prompt.concepts
+      @prompt.concepts.each do |concept|
+        concept.user = current_user
+        concept.save
+      end
+    end
     if @prompt.save
       respond_to do |format|
         format.html { render @prompt }

@@ -1,4 +1,5 @@
 class Concept < ActiveRecord::Base
+  belongs_to :user
   has_many :topics
   has_many :prompts, through: :topics
   has_many :characters, through: :prompts
