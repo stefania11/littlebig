@@ -27,6 +27,12 @@ class PromptsController < ApplicationController
   def create
     @prompt = Prompt.new(prompt_params)
     @prompt.user = current_user
+    if @prompt.concepts
+      @prompt.concepts.each do |concept|
+        concept.user = current_user
+        concept.save
+      end
+    end
 
     respond_to do |format|
       format.html {
