@@ -37,7 +37,7 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane fade active in" id="tab1-item1">
-                <p> <%= @character.bio %> </p>
+                <p><%= @character.bio %></p>
               </div>
               <div class="tab-pane fade" id="tab1-item2">
                 <%= render partial: 'characters/concepts', locals: { character: @character } %>
