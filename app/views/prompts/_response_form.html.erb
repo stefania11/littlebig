@@ -1,0 +1,8 @@
+<%= form_tag responses_path(@prompt.id), id: "prompt#{@prompt.id}_response", method: :post, remote: true, authenticity_token: true do %>
+  <div class="form-group">
+    <label for="prompt[body]" class="sr-only">Response</label>
+    <input type="text" name="prompt[body]" placeholder="Short is good" class="form-control">
+  </div>
+
+  <input type="submit" name="name" value="Respond" class="btn btn-submit">
+<% end %>

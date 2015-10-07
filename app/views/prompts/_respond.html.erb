@@ -1,8 +1,5 @@
-<form class="form" action="<%= new_prompt_path %>" method="get">
-  <input type="hidden" value="<%= prompt.id %>" name="source_id">
-  <div class="text-right">
-    <button type="submit" class="btn btn-common">
-      <i class="fa fa-reply"></i>
-    </button>
-  </div>
-</form>
+<div id="respond_to_#{prompt.id}" class="text-right">
+  <%= link_to new_response_path(prompt.id), class: "btn btn-common", remote: true do %>
+    <i class="fa fa-reply"></i>
+  <% end %>
+</div>

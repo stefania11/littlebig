@@ -3,6 +3,7 @@ class Prompt < ActiveRecord::Base
 
   belongs_to :source, class_name: 'Prompt'
   has_many :responses, class_name: 'Prompt', foreign_key: 'source_id'
+  has_many :responders, through: :responses, source: 'user'
 
   has_many :topics
   has_many :concepts, through: :topics
@@ -13,6 +14,10 @@ class Prompt < ActiveRecord::Base
   has_attachments :photos, maximum: 3
 
   validates :body, presence: true
+
+  def last_response_by(user)
+    responses.where(user_id: user).last
+  end
 
   def concepts_and_characters
     case
@@ -56,5 +61,4 @@ class Prompt < ActiveRecord::Base
 
     self.characters += character_list
   end
-
 end

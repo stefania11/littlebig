@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  concept_id: 1
-  prompt_id: 1
-
-two:
-  concept_id: 1
-  prompt_id: 1

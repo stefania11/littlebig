@@ -1,0 +1,8 @@
+var $respondButton = $('#prompt-<%= @prompt.id %>').find('.text-right');
+var $responseForm = $('<%= j render "response_form" %>').hide();
+
+$respondButton.slideUp(function(){
+  $(this)
+    .replaceWith($responseForm);
+  $('#prompt<%= @prompt.id %>_response').slideDown();
+});

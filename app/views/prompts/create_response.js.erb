@@ -1,0 +1,15 @@
+var $responseForm = $('#prompt<%= @prompt.id %>_response');
+var $promptFooter = $('#prompt-<%= @prompt.id %> .post-bottom');
+var $newPromptFooter = $('<%= j render partial: "single_prompt_footer", locals: { prompt: @prompt } %>').hide();
+
+$responseForm.slideUp(function(){
+  $(this)
+    .remove();
+
+  $promptFooter.slideUp(function(){
+    $(this)
+      .replaceWith($newPromptFooter);
+
+    $('#prompt-<%= @prompt.id %> .post-bottom').slideDown();
+  })
+});

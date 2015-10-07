@@ -1,5 +1,5 @@
 class PromptsController < ApplicationController
-  before_action :set_prompt, only: [:show]
+  before_action :set_prompt, only: [:show, :new_response, :create_response]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /prompts
@@ -7,13 +7,12 @@ class PromptsController < ApplicationController
     @prompts = Prompt.all
   end
 
-  # GET /prompts/1
+  # GET /prompts/:id
   def show
   end
 
   # GET /prompts/new
   def new
-    @source_id = params[:source_id]
     @concept_id = params[:concept_id]
     @character_id = params[:character_id]
     @prompt = Prompt.new
@@ -25,30 +24,29 @@ class PromptsController < ApplicationController
 
   # POST /prompts
   def create
-    @prompt = Prompt.new(prompt_params)
-    @prompt.user = current_user
+    @prompt = current_user.prompts.new(prompt_params)
+
+    if @prompt.save
+      respond_to do |format|
+        format.html { render @prompt }
+        format.js { render @prompt }
+      end
+    else
+      render :new
+    end
+  end
+
+  # GET prompts/:id/responses/new
+  def new_response
+  end
+
+  # POST prompts/:id/responses
+  def create_response
+    @prompt.responses << current_user.prompts.new(prompt_params)
+    @prompt.save
 
     respond_to do |format|
-      format.html {
-        if @prompt.save
-          if @prompt.source
-            redirect_to @prompt.source, notice: 'Prompt was successfully created.'
-          elsif prompt_params[:concept_id]
-            redirect_to @prompt.concepts.last, notice: 'Prompt was successfully created.'
-          else
-            redirect_to @prompt, notice: 'Prompt was successfully created.'
-          end
-        else
-          render :new, notice: 'Nope.'
-        end
-      }
-      format.js {
-        if @prompt.save
-          render :create
-        else
-          render :new
-        end
-      }
+      format.js
     end
   end
 
