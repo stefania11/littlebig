@@ -33,11 +33,9 @@ class CharactersController < ApplicationController
       if @character.save
         format.html { redirect_to @character, notice: 'Character was successfully created.' }
         format.js
-        binding.pry
       else
         format.html { render :new }
         format.js { render js: "alert('Nope')" }
-        binding.pry
       end
     end
   end
