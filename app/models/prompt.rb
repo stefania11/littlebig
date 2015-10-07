@@ -12,6 +12,8 @@ class Prompt < ActiveRecord::Base
 
   has_attachments :images, maximum: 3
 
+  validates :body, presence: true
+
   def concepts_and_characters
     case
     when concepts.present? && characters.present?

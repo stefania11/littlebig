@@ -4,6 +4,8 @@ class Character < ActiveRecord::Base
   has_many :concepts, through: :prompts
   before_save :normalize_name
 
+  validates :name, uniqueness: true, presence: true
+
   def concepts
     super.uniq
   end
