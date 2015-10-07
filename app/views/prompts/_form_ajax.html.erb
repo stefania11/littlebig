@@ -1,3 +1,4 @@
+<div class="col-sm-4 col-sm-offset-4 text-center">
 <%= form_for @prompt, remote: true do |f| %>
   <% if @prompt.errors.any? %>
     <div id="error_explanation" class="form-group">
@@ -52,3 +53,4 @@
     <%= f.submit class: 'btn btn-submit' %>
   </div>
 <% end %>
+</div>
