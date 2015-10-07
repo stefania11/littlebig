@@ -1,5 +1,5 @@
 <div class="single-blog timeline">
-  <div class="post-content overflow">
+  <div id="prompt-<%= prompt.id %>" class="post-content overflow">
     <h2 class="post-title bold">
       <%= link_to prompt.body, prompt %>
     </h2>
@@ -10,19 +10,10 @@
 
     <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
 
-    <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+    <% if prompt.responders.exclude? current_user %>
+      <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
+    <% end %>
 
-    <div class="post-bottom overflow">
-      <span class="post-date pull-left">
-        <i class="fa fa-clock-o"></i>
-        <%= time_ago_in_words prompt.created_at %> ago
-      </span>
-
-      <span class="comments-number pull-right">
-        <%= link_to prompt do %>
-          <%= pluralize prompt.responses.count, 'response' %>
-        <% end %>
-      </span>
-    </div>
+    <%= render partial: 'prompts/single_prompt_footer', locals: { prompt: prompt } %>
   </div>
 </div>

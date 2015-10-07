@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20151007151801) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.text     "bio"
-    t.text     "overview"
   end
 
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
