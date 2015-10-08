@@ -4,7 +4,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts
   def index
-    @prompts = Prompt.sample(20)
+    @prompts = Prompt.limit(20).order("RANDOM()")
   end
 
   # GET /prompts/:id
