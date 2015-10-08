@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   has_many :characters
   has_many :concepts
 
+  has_many :collections
+  has_many :collected_prompts, through: :collections, source: 'prompt'
+
   has_secure_password
 
   validates :email, presence: true, uniqueness: true
@@ -10,5 +13,4 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   has_attachment :avatar, accept: [:jpg, :png, :gif, :jpeg]
-  # validates :avatar, presence: true
 end

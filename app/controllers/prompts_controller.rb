@@ -36,8 +36,8 @@ class PromptsController < ApplicationController
     end
     if @prompt.save
       respond_to do |format|
-        format.html { render @prompt }
-        format.js { render @prompt }
+        format.html { redirect_to @prompt }
+        format.js
       end
     else
       render :new
