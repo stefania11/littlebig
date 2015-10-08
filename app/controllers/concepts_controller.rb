@@ -36,6 +36,7 @@ class ConceptsController < ApplicationController
       else
         format.html { render :new }
         format.js { render js: "alert('Nope')" }
+      end
     end
   end
 
@@ -52,6 +53,18 @@ class ConceptsController < ApplicationController
   def destroy
     @concept.destroy
     redirect_to concepts_url, notice: 'Concept was successfully destroyed.'
+  end
+
+  def create_response
+    @concept.responses << current_user.concepts.new(concept_params)
+    @concept.save
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def new_response
   end
 
   private

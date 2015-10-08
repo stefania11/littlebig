@@ -1,0 +1,15 @@
+var $responseForm = $('#concept<%= @concept.id %>_response');
+var $conceptFooter = $('#concept-<%= @concept.id %> .post-bottom');
+var $newConceptFooter = $('<%= j render partial: "single_concept_footer", locals: { concept: @concept } %>').hide();
+
+$responseForm.slideUp(function(){
+  $(this)
+    .remove();
+
+  $conceptFooter.slideUp(function(){
+    $(this)
+      .replaceWith($newConceptFooter);
+
+    $('#concept-<%= @concept.id %> .post-bottom').slideDown();
+  })
+});
