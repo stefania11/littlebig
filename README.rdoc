@@ -1,6 +1,6 @@
 == Little Big Questions
 
-Live demo at littlebig.herokuapp.com
+Live demo at [littlebig.herokuapp.com](http://littlebig.herokuapp.com)
 
 A Ruby on Rails learning recommendation engine for parents and children to use together.
 
