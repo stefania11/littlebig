@@ -1,2 +1,15 @@
-$('#concept<%= @concept.id %>_response')
-  .replaceWith("<%= j render partial: 'concepts/new_mention_btn', locals: { concept: @concept } %>");
+  var $responseForm = $('#concept<%= @concept.id %>_response');
+  var $conceptFooter = $('#concept-<%= @concept.id %> .post-bottom');
+  var $newConceptFooter = $('<%= j render partial: "concepts/new_mention_btn", locals: { concept: @concept } %>').hide();
+
+  $responseForm.slideUp(function(){
+    $(this)
+      .remove();
+
+    $conceptFooter.slideUp(function(){
+      $(this)
+        .replaceWith($newConceptFooter);
+
+      $('#concept-<%= @concept.id %> .post-bottom').slideDown();
+    })
+  });
