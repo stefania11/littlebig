@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/assembler/attachinary.git
-  revision: 3ba29a56e32a83eba5ef024d70c10d709ab68e4a
-  ref: 3ba29a56e32a83eba5ef024d70c10d709ab68e4a
-  specs:
-    attachinary (1.3.0)
-      cloudinary (~> 1.1.0)
-      rails (>= 3.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,6 +37,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    attachinary (1.3.1)
+      cloudinary (~> 1.1.0)
+      rails (>= 3.2)
     autoprefixer-rails (6.0.3)
       execjs
       json
@@ -58,11 +52,6 @@ GEM
       sass (>= 3.3.0)
     builder (3.2.2)
     byebug (6.0.2)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     cloudinary (1.1.0)
       aws_cf_signer
       rest-client
@@ -198,11 +187,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  attachinary!
+  attachinary
   bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.5)
   byebug
-  carrierwave
   cloudinary
   coffee-rails (~> 4.1.0)
   faker
