@@ -14,7 +14,7 @@ class Prompt < ActiveRecord::Base
   has_many :collections
   has_many :collectors, through: :collections, source: 'user'
 
-  has_attachments :photos, maximum: 3
+  has_attachment :image
 
   validates :body, presence: true
 

@@ -53,7 +53,6 @@ gem "font-awesome-rails"
 
 
 #Attachments, Photos, etc.
-gem 'carrierwave'
 gem 'cloudinary'
 gem 'attachinary'
 

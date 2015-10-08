@@ -1,9 +1,5 @@
 <%= form_for @user do |f| %>
 
-  <% if @user.avatar? %>
-      <%= cl_image_tag(@user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
-  <% end %>
-
   <div class="form-group">
     <%= f.label :username, class: 'sr-only' %><br />
     <%= f.text_field :username, placeholder: 'Username', class: 'form-control' %>

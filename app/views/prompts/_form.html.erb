@@ -18,6 +18,12 @@
 
   <h3>Optional...</h3>
 
+  <% if @source_id %>
+    <div class="form-group">
+      <%= f.attachinary_file_field :image %>
+    </div>
+  <% end %>
+
   <%# TODO: Should this be a form_tag? %>
   <div class="form-group">
     <label for="prompt[concept_list]" class="sr-only">Concepts</label>
@@ -47,6 +53,7 @@
       <%= f.hidden_field :character_id, value: @character_id, class: 'form-control' %>
     </div>
   <% end %>
+
 
   <div class="actions">
     <%= f.submit class: 'btn btn-submit' %>
