@@ -36,6 +36,7 @@ class ConceptsController < ApplicationController
       else
         format.html { render :new }
         format.js { render js: "alert('Nope')" }
+      end
     end
   end
 
