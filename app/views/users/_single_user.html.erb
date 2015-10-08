@@ -17,7 +17,7 @@
     <%# render partial: 'users/new_prompt', locals: { user: user } %>
 
     <%# TODO: Rolando: Should we allow users to collect other users, like prompts? %>
-    
+
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
@@ -27,9 +27,15 @@
       </span>
 
       <span class="comments-number pull-right">
-        <%# link_to user do %>
-          <%# pluralize user.prompts.count, 'mention' %>
-        <%# end %>
+        <%= link_to user do %>
+          Contributed <%= pluralize user.prompts.count, 'prompt' %>
+          <% if user.concepts.present? %>
+            , <%= pluralize user.concepts.count, 'concept' %>
+          <% end %>
+          <% if user.characters.present? %>
+            , <%= pluralize user.characters.count, 'character' %>
+          <% end %>
+        <% end %>
       </span>
     </div>
   </div>
