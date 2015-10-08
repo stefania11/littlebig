@@ -1,28 +1,15 @@
-== README
+== littleBIG Questions
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Live demo at [littlebig.herokuapp.com](http://littlebig.herokuapp.com)
 
-Things you may want to cover:
+A Ruby on Rails learning engine for parents and children to use together.
 
-* Ruby version
+Instead of questions and answers, text snippets are modeled as *prompts* to encourage free association.
+Every prompt can have or be a *response*, and include *concepts* or *characters*. We use CSS and AJAX to
+describe these intricate associations visually and to encourage users to create their own.
 
-* System dependencies
+To run LittleBig yourself, simply download our repo, run a server ('rails s') and see it in action at localhost:3000.
 
-* Configuration
+We customized the free Bootstrap theme, [Triangle](https://shapebootstrap.net/item/1524992-triangle-free-responsive-multipurpose-template).
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+From the Flatiron School with <3 by [Stefania Druga](http://github/stefania11), [Rolando Brown](http://github.com/rolandobrown), [Drew Price](drewprice), and [Jessica Wray](http://github.com/jessicashannon).
