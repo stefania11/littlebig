@@ -11,6 +11,9 @@ class Prompt < ActiveRecord::Base
   has_many :relationships
   has_many :characters, through: :relationships
 
+  has_many :collections
+  has_many :collectors, through: :collections, source: 'user'
+
   has_attachment :image
 
   validates :body, presence: true

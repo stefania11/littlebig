@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007151801) do
+ActiveRecord::Schema.define(version: 20151008183752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20151007151801) do
   end
 
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
+
+  create_table "collections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "prompt_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "collections", ["prompt_id"], name: "index_collections_on_prompt_id", using: :btree
+  add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
 
   create_table "concepts", force: :cascade do |t|
     t.string   "name"
@@ -97,6 +107,8 @@ ActiveRecord::Schema.define(version: 20151007151801) do
   end
 
   add_foreign_key "characters", "users"
+  add_foreign_key "collections", "prompts"
+  add_foreign_key "collections", "users"
   add_foreign_key "concepts", "users"
   add_foreign_key "prompts", "users"
   add_foreign_key "relationships", "characters"

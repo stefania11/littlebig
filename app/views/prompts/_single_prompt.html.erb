@@ -5,6 +5,15 @@
     </h2>
 
     <h3 class="post-author">
+      <% if current_user.collected_prompts.include? prompt %>
+        <%= link_to uncollect_path(prompt), method: 'delete', remote: true do %>
+          <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark"></i>
+        <% end %>
+      <% else %>
+        <%= link_to collect_path(prompt), method: 'post', remote: true do %>
+          <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark-o"></i>
+        <% end %>
+      <% end %>
       <a href="#">Posted by <%= prompt.user.username %></a>
     </h3>
 
