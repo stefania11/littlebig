@@ -4,7 +4,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts
   def index
-    @prompts = Prompt.all
+    @prompts = Prompt.take(20)
   end
 
   # GET /prompts/:id

@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Little Big Questions</title>
-  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
   <%= cloudinary_js_config %>
 
@@ -25,6 +25,6 @@
   <%= render 'layouts/flash' %>
   <%= yield %>
   <%= render 'layouts/footer' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
 </body>
 </html>
