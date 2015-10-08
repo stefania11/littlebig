@@ -1,7 +1,0 @@
-<% users.each_with_index do |user, index| %>
-  <% if index.odd? %>
-    <%= render partial: 'users/right', locals: { user: user } %>
-  <% else %>
-    <%= render partial: 'users/left', locals: { user: user } %>
-  <% end %>
-<% end %>
