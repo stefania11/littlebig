@@ -1,4 +1,4 @@
-== littleBIG Questions
+# littleBIG
 
 Live demo at [littlebig.herokuapp.com](http://littlebig.herokuapp.com)
 
