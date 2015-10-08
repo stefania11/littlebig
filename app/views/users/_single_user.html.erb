@@ -19,7 +19,9 @@
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
-        Last posted <%# time_ago_in_words user.prompts.last.created_at %> ago
+
+        <a href="/prompt/<%= user.prompts.last.id %>">Posted <%= time_ago_in_words user.prompts.last.created_at %> ago</a>
+
       </span>
 
       <span class="comments-number pull-right">
