@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'collections/create'
-
-  get 'collections/destroy'
 
   root 'welcomes#index'
 
