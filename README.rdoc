@@ -1,5 +1,7 @@
 == Little Big Questions
 
+Live demo at littlebig.herokuapp.com
+
 A Ruby on Rails learning recommendation engine for parents and children to use together.
 
 Instead of questions and answers, text snippets are modeled as *prompts* to encourage free association.
