@@ -1,0 +1,2 @@
+$('#concept<%= @concept.id %>_response')
+  .replaceWith("<%= j render partial: 'concepts/new_mention_btn', locals: { concept: @concept } %>");

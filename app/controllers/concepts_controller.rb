@@ -1,5 +1,5 @@
 class ConceptsController < ApplicationController
-  before_action :set_concept, only: [:show, :edit, :update, :destroy]
+  before_action :set_concept, only: [:show, :edit, :update, :destroy, :new_mention, :create_mention]
   before_action :authenticate_user!, except: [:index, :show]
 
 
@@ -55,16 +55,21 @@ class ConceptsController < ApplicationController
     redirect_to concepts_url, notice: 'Concept was successfully destroyed.'
   end
 
-  def create_response
-    @concept.responses << current_user.concepts.new(concept_params)
-    @concept.save
+  # def create_response
+  #   @concept.responses << current_user.concepts.new(concept_params)
+  #   @concept.save
+  #
+  #   respond_to do |format|
+  #     format.js
+  #   end
+  # end
 
-    respond_to do |format|
-      format.js
-    end
+  def create_mention
+    @concept.prompts.new(body: params[:prompt][:body])
+    @concept.save
   end
 
-  def new_response
+  def new_mention
   end
 
   private

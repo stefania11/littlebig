@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   # Characters & Concepts
   resources :characters, :concepts
-  get 'concepts/:id/responses/new', to: 'concepts#new_response', as: 'concept_response'
-  post 'concepts/:id/responses', to: 'concepts#create_response', as: 'concept_responses'
+  get 'concepts/:id/mentions/new', to: 'concepts#new_mention', as: 'new_concept_mention'
+  post 'concepts/:id/mentions', to: 'concepts#create_mention', as: 'concept_mentions'
 
   mount Attachinary::Engine => '/attachinary'
 end

@@ -1,6 +1,4 @@
-<div class="single-blog timeline">
-  <div id="concept-<%= concept.id %>" class="post-content overflow">
-
+<div class="single-blog timeline" id="concept_<%= concept.id %>">
   <div class="post-content overflow">
     <h2 class="post-title bold">
       <%= link_to concept.name, concept %>
@@ -15,7 +13,7 @@
       <%= concept.overview %>
     </p>
 
-    <%# render partial: 'concepts/new_prompt', locals: { concept: concept } %>
+    <%= render partial: 'concepts/new_mention_btn', locals: { concept: concept } %>
 
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
@@ -29,11 +27,6 @@
         <%= link_to concept do %>
           <%= pluralize concept.prompts.count, 'mention' %>
         <% end %>
-        <% if concept.responders.exclude? current_user %>
-          <%= render partial: 'concepts/response', locals: { concept: concept } %>
-        <% end %>
-
-        <%= render partial: 'concepts/single_concept_footer', locals: { concept: concept } %>
       </span>
     </div>
   </div>
