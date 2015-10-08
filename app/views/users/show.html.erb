@@ -19,6 +19,12 @@
               </li>
               <% if current_user == @user %>
                 <li>
+                    <a data-toggle="tab" href="#tab1-item4">
+                      <i class="fa fa-bookmark"></i>
+                      COLLECTION
+                    </a>
+                </li>
+                <li>
                   <%= link_to edit_user_path(@user) do %>
                     EDIT
                     <i class="fa fa-pencil-square-o"></i>
@@ -46,6 +52,16 @@
                 </h3>
                 <div id="accordion-container">
                   <% @user.prompts.each do |prompt| %>
+                    <%= render partial: 'prompts/prompt', locals: { prompt: prompt }  %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="tab1-item4">
+                <h3 id="collection_count" class="text-center">
+                  <%= pluralize @user.collected_prompts.count, 'prompt' %> collected
+                </h3>
+                <div id="accordion-container">
+                  <% @user.collected_prompts.each do |prompt| %>
                     <%= render partial: 'prompts/prompt', locals: { prompt: prompt }  %>
                   <% end %>
                 </div>

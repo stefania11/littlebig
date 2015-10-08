@@ -6,7 +6,10 @@
       </h2>
 
       <h3 class="post-author">
-        <a href="/users/<%= prompt.user.id %>">By <%= prompt.user.username %></a><br>
+        <%= link_to uncollect_path(prompt), method: 'delete', remote: true do %>
+          <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark"></i>
+        <% end %>
+        <%= link_to "By #{prompt.user.username}", prompt.user %>
       </h3>
 
       <%# TODO: dynamically show photo button %>
