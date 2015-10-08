@@ -55,9 +55,8 @@ gem "font-awesome-rails"
 
 
 #Attachments, Photos, etc.
-gem 'carrierwave'
 gem 'cloudinary'
-gem 'attachinary', github: 'assembler/attachinary', ref: '3ba29a56e32a83eba5ef024d70c10d709ab68e4a'
+gem 'attachinary'
 
 #DRY up repsponders
 gem "responders"

@@ -11,7 +11,7 @@ class Prompt < ActiveRecord::Base
   has_many :relationships
   has_many :characters, through: :relationships
 
-  has_attachments :images, maximum: 3, accept: [:jpg, :png, :gif, :jpeg]
+  has_attachment :image
 
   validates :body, presence: true
 

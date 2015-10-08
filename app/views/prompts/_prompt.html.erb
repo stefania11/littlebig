@@ -44,8 +44,7 @@
     </div>
     <div class="panel-collapse collapse out" id="collapse<%= prompt.id %>2">
       <div class="panel-body">
-        <% @prompt.images.each do |image| %>
-        <%= cl_image_tag(image.path, { size: '125x125', crop: :fit }) %><% end %>
+        <%= cl_image_tag(@post.photo.path, { size: '500x400', crop: :fit }) %>
       </div>
     </div>
   </div>
