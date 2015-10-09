@@ -1,5 +1,5 @@
 class ConceptsController < ApplicationController
-  before_action :set_concept, only: [:show, :edit, :update, :destroy]
+  before_action :set_concept, only: [:show, :edit, :update, :destroy, :new_mention, :create_mention]
   before_action :authenticate_user!, except: [:index, :show]
 
 
