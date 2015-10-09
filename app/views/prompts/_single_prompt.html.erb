@@ -24,7 +24,7 @@
     <% if prompt.responders.exclude? current_user %>
       <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
     <% end %>
-    <%= button_to '+1', upvote_prompt_path(prompt), method: :post %>x
+    <%= button_to '+1', upvote_prompt_path(prompt), method: :post, remote: true %>
     <%= render partial: 'prompts/single_prompt_footer', locals: { prompt: prompt } %>
   </div>
 </div>
