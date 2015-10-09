@@ -1,0 +1,18 @@
+<div class="post-bottom overflow">
+  <span class="post-date pull-left">
+    <% if concept.responders.include? current_user %>
+      <i class="fa fa-check-circle"></i>
+      You responded
+      <%= time_ago_in_words concept.last_response_by(current_user).created_at %> ago
+    <% else %>
+      <i class="fa fa-clock-o"></i>
+      <%= time_ago_in_words concept.created_at %> ago
+    <% end %>
+  </span>
+
+  <span class="comments-number pull-right">
+    <%= link_to concept do %>
+      <%= pluralize concept.responses.count, 'response' %>
+    <% end %>
+  </span>
+</div>
