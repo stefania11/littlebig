@@ -12,8 +12,9 @@
         <%= link_to "By #{prompt.user.username}", prompt.user %>
       </h3>
       <% if prompt.image.present? %>
-        <a data-parent="#accordion-<%= prompt.id %>" class="toggle" data-toggle="collapse" href="#collapse<%= prompt.id %>2">
-          Close image <span class="fa fa-camera-retro"></span>
+        <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>2">
+          Toggle image
+          <span class="fa fa-camera-retro"></span>
         </a>
       <% end %>
 
@@ -45,9 +46,11 @@
       </div>
     </div>
     <% if prompt.image.present? %>
-    <div class="panel-collapse collapse out" id="collapse<%= prompt.id %>2">
+    <div class="panel-collapse collapse in" id="collapse<%= prompt.id %>2">
       <div class="panel-body">
-        <%= cl_image_tag(prompt.image.path, { size: '500x400', crop: :fit }) %>
+        <%= link_to prompt.image.url, class: "btn btn-primary" do %>
+          <%= cl_image_tag(prompt.image.path, { size: '200x200', crop: :fit }) %>
+        <% end %>
       </div>
     </div>
     <% end %>
