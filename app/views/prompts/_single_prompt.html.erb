@@ -5,18 +5,15 @@
     </h2>
 
     <h3 class="post-author">
-      <% if user_signed_in? %>
-        <% if current_user.collected_prompts.include?(prompt) %>
-            <%= link_to uncollect_path(prompt), method: 'delete', remote: true do %>
-            <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark"></i>
-            <% end %>
+      <%# TODO: Refactor %>
+      <% if current_user != prompt.user %>
+        <% if current_user.collected_prompts.include? prompt %>
+          <%= render partial: 'collections/uncollect', locals: { prompt: prompt } %>
         <% else %>
-          <%= link_to collect_path(prompt), method: 'post', remote: true do %>
-            <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark-o"></i>
-            <% end %>
+          <%= render partial: 'collections/collect', locals: { prompt: prompt } %>
         <% end %>
-        <%= link_to "By #{prompt.user}", prompt.user %>
       <% end %>
+      <%= link_to "By #{prompt.user}", prompt.user %>
     </h3>
 
     <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
@@ -24,7 +21,6 @@
     <% if prompt.responders.exclude? current_user %>
       <%= render partial: 'prompts/respond', locals: { prompt: prompt } %>
     <% end %>
-
     <%= render partial: 'prompts/single_prompt_footer', locals: { prompt: prompt } %>
   </div>
 </div>

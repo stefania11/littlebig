@@ -37,7 +37,7 @@ class ConceptsController < ApplicationController
         format.js
       else
         format.html { render :new }
-        format.js { render js: "alert('Nope')" }
+        format.js { render js: "alert('This concept already exists, try to create a new one')" }
       end
     end
   end

@@ -1,2 +1,2 @@
 $('#bookmark-<%= @prompt.id %>')
-  .replaceWith('<i id="bookmark-<%= @prompt.id %>" class="fa fa-bookmark"></i>')
+  .replaceWith('<%= j render partial: "collections/uncollect", locals: { prompt: @prompt } %>')

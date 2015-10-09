@@ -63,7 +63,7 @@
                 <h3 id="collection_count" class="text-center">
                   <%= pluralize @user.collected_prompts.count, 'prompt' %> collected
                 </h3>
-                <div id="accordion-container">
+                <div id="accordion-container" class="<%= 'current_user_collection' if @user == current_user %>">
                   <% @user.collected_prompts.each do |prompt| %>
                     <%= render partial: 'prompts/prompt', locals: { prompt: prompt }  %>
                   <% end %>
