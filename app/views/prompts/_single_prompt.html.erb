@@ -14,7 +14,7 @@
           <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark-o"></i>
         <% end %>
       <% end %>
-      <a href="#">Posted by <%= prompt.user.username %></a>
+      <a href="/users/<%= prompt.user.id %>">Posted by <%= prompt.user.username %></a>
     </h3>
 
     <%= render partial: 'prompts/concepts_and_characters', locals: { prompt: prompt } %>
