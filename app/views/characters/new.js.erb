@@ -1,1 +1,8 @@
-$('#new_character_btn').replaceWith('<%= j render "form_ajax" %>')
+var $button = $('#new_character_btn');
+var $form = $('<%= j render "form_ajax" %>').hide();
+
+$button.slideUp(function(){
+  $(this).replaceWith($form);
+
+  $('#new_character').slideDown();
+})
