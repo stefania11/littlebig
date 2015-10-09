@@ -1,9 +1,17 @@
-if (<%= @character.id %> % 2 === 0){
-  var partial = "<%= j render partial: 'characters/right', locals: { character: @character } %>"
-}else {
-  var partial = "<%= j render partial: 'characters/left', locals: { character: @character } %>"
-}
+var $form = $('#new_character');
+var $success = $('<%= j render partial: "success", locals: { character: @character } %>').hide();
 
-$('#list_of_prompts').prepend(partial);
+$form.slideUp(function(){
+  $(this).replaceWith($success);
 
-$('#new_character').replaceWith("<%= j render 'characters/new_character_btn' %>")
+  var $successOnDOM = $('#<%= @character.id %>-success');
+  var $newCharacterBtn = $('<%= j render "new_character_btn" %>').hide();
+
+  $successOnDOM.slideDown(function(){
+    window.setTimeout(function(){
+      $successOnDOM.replaceWith($newCharacterBtn)
+
+      $('#new_character_btn').slideDown();
+    }, 3000);
+  });
+});
