@@ -2,7 +2,7 @@ $('#bookmark-<%= @prompt.id %>')
   .replaceWith('<%= j render partial: "collections/collect", locals: { prompt: @prompt } %>');
 
 // On user's collection tab
-$('#accordion-<%= @prompt.id %>').slideUp(function(){
+$('.current_user_collection').find('#accordion-<%= @prompt.id %>').slideUp(function(){
   $(this.remove)
   var newCount = "<%= pluralize current_user.collected_prompts.count, 'prompt' %> collected";
 
