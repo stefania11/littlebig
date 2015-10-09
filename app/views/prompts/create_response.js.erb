@@ -1,25 +1,25 @@
 var $responseForm = $('#prompt<%= @prompt.id %>_response');
+var $promptFooterForIndex = $('#index-footer-<%= @prompt.id %>');
+var $promptFooterForShow = $('#show-footer-<%= @prompt.id %>');
+var $newFooterForIndex = $('<%= j render partial: "single_prompt_footer", locals: { prompt: @prompt } %>').hide();
+var $newFooterForShow = $('<%= j render partial: "prompt_footer", locals: { prompt: @prompt } %>').hide();
 
 $responseForm.slideUp(function(){
   $(this)
     .remove();
 
-  var $indexPromptFooter = $('#prompt-<%= @prompt.id %> .post-bottom');
-  var $newIndexPromptFooter = $('<%= j render partial: "single_prompt_footer", locals: { prompt: @prompt } %>').hide();
-  $indexPromptFooter.slideUp(function(){
+  $promptFooterForIndex.slideUp(function(){
     $(this)
-      .replaceWith($newIndexPromptFooter);
+      .replaceWith($newFooterForIndex);
 
-    $('#prompt-<%= @prompt.id %> .post-bottom').slideDown();
+    $('#index-footer-<%= @prompt.id %>').slideDown();
   })
 
-  var $showPromptFooter = $('#prompt-<%= @prompt.id %> .panel-footer');
-  var $newShowPromptFooter = $('<%= j render partial: "single_prompt_footer", locals: { prompt: @prompt } %>').hide();
-  $indexPromptFooter.slideUp(function(){
+  $promptFooterForShow.slideUp(function(){
     $(this)
-      .replaceWith($newIndexPromptFooter);
+      .replaceWith($newFooterForShow);
 
-    $('#prompt-<%= @prompt.id %> .post-bottom').slideDown();
+    $('#show-footer-<%= @prompt.id %>').slideDown();
   })
 
 });

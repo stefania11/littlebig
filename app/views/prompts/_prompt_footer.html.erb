@@ -1,0 +1,39 @@
+<div id="show-footer-<%= prompt.id %>">
+  <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>">
+    <div class="panel-footer overflow">
+      <span class="post-date pull-left">
+        <% if prompt.responders.include? current_user %>
+          <i class="fa fa-check-circle"></i>
+          You responded
+          <%= time_ago_in_words prompt.last_response_by(current_user).created_at %>
+          ago
+        <% else %>
+          <i class="fa fa-clock-o"></i>
+          <%= time_ago_in_words prompt.created_at %> ago
+        <% end %>
+
+      </span>
+
+      <span class="comments-number pull-right">
+        <%= pluralize prompt.responses.count, 'response' %>
+        <% if prompt.responses.any? %>
+          <i class="fa fa-angle-down"></i>
+        <% end %>
+      </span>
+    </div>
+  </a>
+  <div class="panel-collapse collapse out" id="collapse<%= prompt.id %>">
+    <div class="panel-body">
+      <%= render prompt.responses %>
+    </div>
+  </div>
+
+  <% if prompt.image.present? %>
+  <div class="panel-collapse collapse out" id="collapse2<%= prompt.id %>">
+    <div class="panel-body">
+      <%= cl_image_tag prompt.image.path, size: '500x400', crop: :fit, class: 'response-image' %>
+    </div>
+  </div>
+  <% end %>
+</div>
+</a>
