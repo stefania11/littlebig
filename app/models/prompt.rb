@@ -17,6 +17,10 @@ class Prompt < ActiveRecord::Base
   has_attachment :image
 
   validates :body, presence: true
+  # validates :body, length: {
+  #   maximum: 140,
+  # }
+
 
   def to_s
     prompt.body
@@ -54,7 +58,6 @@ class Prompt < ActiveRecord::Base
   def concept_list=(string)
     concept_list = string.scan(/\w+/).map do |name|
       name = name.downcase.titleize
-
       Concept.find_or_create_by(name: name)
     end
 

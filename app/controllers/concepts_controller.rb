@@ -28,7 +28,8 @@ class ConceptsController < ApplicationController
 
   # POST /concepts
   def create
-    @concept = Concept.new(concept_params)
+    #todo look for name and if it exists show an error
+    @concept = Concept.find_or_create_by(name: params[:concept][:name])
     @concept.user = current_user
     respond_to do |format|
       if @concept.save
