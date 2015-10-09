@@ -46,6 +46,7 @@ end
 
 # Seeding
 gem 'faker'
+gem 'bazaar'
 
 # Theme
 gem 'bootstrap-sass', '~> 3.3.5'
