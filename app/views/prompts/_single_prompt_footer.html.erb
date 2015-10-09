@@ -15,6 +15,9 @@
 
   <span class="comments-number pull-right">
     <%= link_to prompt do %>
+    <% if prompt.image.present? %>
+      1 image, 
+    <% end %>
       <%= pluralize prompt.responses.count, 'response' %>
     <% end %>
   </span>
