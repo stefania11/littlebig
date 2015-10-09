@@ -1,0 +1,24 @@
+
+  var $responseForm = $('#character<%= @character.id %>_response');
+  var $characterFooter = $('#mention_<%= @character.id %> .post-bottom');
+  var $newCharacterFooter = $('<%= j render partial: "characters/new_mention_btn", locals: { character: @character } %>').hide();
+
+  $responseForm.slideUp(function(){
+    $(this)
+      .remove();
+
+    $characterFooter.slideUp(function(){
+      $(this)
+        .replaceWith($newCharacterFooter);
+
+      $('#character-<%= @character.id %> .post-bottom').slideDown();
+    })
+  });
+
+$('#blog').prepend('<%= j render 'layouts/flash' %>').hide().fadeIn();
+
+setTimeout(function(){
+  $('.alert').fadeOut(function(){
+    $(this).remove();
+  })
+}, 3000);

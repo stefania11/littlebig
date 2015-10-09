@@ -1,0 +1,8 @@
+var $respondButton = $('#character_<%= @character.id %>').find('.text-right');
+
+var $responseForm = $('<%= j render 'mention_form' %>').hide();
+
+$respondButton.slideUp(function(){
+  $(this).replaceWith($responseForm);
+  $('#character<%= @character.id %>_response').slideDown();
+});
