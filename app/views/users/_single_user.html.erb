@@ -21,12 +21,14 @@
     </div>
 
     <div class="post-bottom overflow">
-      <span class="post-date pull-left">
-        <i class="fa fa-clock-o"></i>
-        <%# link_to prompt_path(user.prompts.last) do %>
-          <!-- Posted <%# time_ago_in_words user.prompts.last.created_at %> ago -->
-        <%# end %>
-      </span>
+      <% if user.prompts.any? %>
+        <span class="post-date pull-left">
+          <i class="fa fa-clock-o"></i>
+          <%= link_to prompt_path(user.prompts.last) do %>
+            Posted <%= time_ago_in_words user.prompts.last.created_at %> ago
+          <% end %>
+        </span>
+      <% end %>
 
       <span class="comments-number pull-right">
         <%= link_to user do %>
