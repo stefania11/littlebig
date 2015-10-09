@@ -14,8 +14,6 @@ class Prompt < ActiveRecord::Base
   has_many :collections
   has_many :collectors, through: :collections, source: 'user'
 
-  has_many :votes, dependent: :destroy
-
   has_attachment :image
 
   validates :body, presence: true
