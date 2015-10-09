@@ -16,15 +16,9 @@
     <%= f.text_area :body, placeholder: "Tell us what questions you would like to answer for your child?", class: 'form-control' %>
   </div>
 
-  <h3>Optional...</h3>
+  <h3>If you'd like...</h3>
 
-  <% if @source_id %>
-    <div class="form-group">
-      <%= f.attachinary_file_field :image %>
-    </div>
-  <% end %>
 
-  <%# TODO: Should this be a form_tag? %>
   <div class="form-group">
     <label for="prompt[concept_list]" class="sr-only">Concepts</label>
     <input type="text" name="prompt[concept_list]" class="form-control" placeholder="What is this question mainly about? Could you list the main concept(s)">
@@ -35,25 +29,9 @@
     <input type="text" name="prompt[character_list]" class="form-control" placeholder="Are there any famous people or characters associated with this question?">
   </div>
 
-  <%# TODO: can this/should this be DRYer? More flexible? %>
-  <% if @source_id %>
-    <div class="form-group">
-      <%= f.hidden_field :source_id, value: @source_id, class: 'form-control' %>
-    </div>
-  <% end %>
-
-  <% if @concept_id %>
-    <div class="form-group">
-      <%= f.hidden_field :concept_id, value: @concept_id, class: 'form-control' %>
-    </div>
-  <% end %>
-
-  <% if @character_id %>
-    <div class="form-group">
-      <%= f.hidden_field :character_id, value: @character_id, class: 'form-control' %>
-    </div>
-  <% end %>
-
+  <div class="form-group">
+    <%= f.attachinary_file_field :image, class: 'form-control' %>
+  </div>
 
   <div class="actions">
     <%= f.submit class: 'btn btn-submit' %>
