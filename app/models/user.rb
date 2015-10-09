@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
 
   def to_s
-    "@#{username.gsub(/[ \.]/, '')}"
+    username
   end
 end
