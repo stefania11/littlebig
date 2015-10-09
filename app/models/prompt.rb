@@ -16,7 +16,14 @@ class Prompt < ActiveRecord::Base
 
   has_attachment :image
 
-  validates :body, presence: true
+  validates :body, presence: true, length: {
+    minimum: 100,
+    maximum: 400,
+    tokenizer: lambda { |str| str.split(/\s+/) },
+    too_short: "must have at least %{count} words",
+    too_long: "must have at most %{count} words"
+  }
+
 
   def to_s
     prompt.body
