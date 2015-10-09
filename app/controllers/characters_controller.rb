@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_character, only: [:show, :edit, :update, :destroy, :new_mention, :create_mention]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /characters
@@ -57,6 +57,19 @@ class CharactersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }
     end
+  end
+
+  def create_mention
+    @character.prompts.new(body: params[:prompt][:body], user_id: current_user.id)
+    if @character.save
+      flash[:notice] = "Your prompt was successfully created."
+    else
+      flash[:alert] = "That didn't work. Try again?"
+    end
+    flash.discard
+  end
+
+  def new_mention
   end
 
   private
