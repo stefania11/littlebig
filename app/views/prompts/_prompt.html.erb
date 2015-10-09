@@ -48,9 +48,7 @@
     <% if prompt.image.present? %>
     <div class="panel-collapse collapse in" id="collapse<%= prompt.id %>2">
       <div class="panel-body">
-        <%= link_to prompt.image.url, class: "btn btn-primary" do %>
-          <%= cl_image_tag(prompt.image.path, { size: '200x200', crop: :fit }) %>
-        <% end %>
+        <%= cl_image_tag(prompt.image.path, { size: '400x400', crop: :fit }) %>
       </div>
     </div>
     <% end %>
