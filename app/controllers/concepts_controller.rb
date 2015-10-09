@@ -1,5 +1,5 @@
 class ConceptsController < ApplicationController
-  before_action :set_concept, except: [:index, :new]
+  before_action :set_concept, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
 
 
