@@ -1,7 +1,17 @@
-if ($('form').last().find('input').val() %2 == 0){
-  var partial = "<%= j render partial: 'prompts/right', locals: { prompt: @prompt } %>"
-}else {
-  var partial = "<%= j render partial: 'prompts/left', locals: { prompt: @prompt } %>"
-}
-$('#list_of_prompts').prepend(partial);
-$('#new_prompt').replaceWith('<%= j render 'new_prompt_btn' %>')
+var $form = $('#new_prompt');
+var $success = $('<%= j render partial: "success", locals: { prompt: @prompt } %>').hide();
+
+$form.slideUp(function(){
+  $(this).replaceWith($success);
+
+  var $successOnDOM = $('#<%= @prompt.id %>-success');
+  var $newPromptBtn = $('<%= j render "new_prompt_btn" %>').hide();
+
+  $successOnDOM.slideDown(function(){
+    window.setTimeout(function(){
+      $successOnDOM.replaceWith($newPromptBtn)
+
+      $('#prompt_new_btn').slideDown();
+    }, 4000);
+  });
+});

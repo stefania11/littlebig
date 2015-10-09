@@ -18,6 +18,10 @@ class Prompt < ActiveRecord::Base
 
   validates :body, presence: true
 
+  def to_s
+    prompt.body
+  end
+
   def last_response_by(user)
     responses.where(user_id: user).last
   end

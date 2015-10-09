@@ -6,27 +6,33 @@
 
     <h3 class="post-author">
       <%# TODO: Add in the associated user %>
-      <a href="#">Joined <%= time_ago_in_words user.created_at %></a>
+      <a href="/users/<%= user.id %>">Joined <%= time_ago_in_words user.created_at %></a>
     </h3>
-
-    <%# TODO: Create an editable bio for each user? %>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <%= user.bio %>
     </p>
 
-    <%# TODO: Does this make sense? %>
+    <%# TODO: Drew: Does this make sense? Rolando: We should remove. %>
     <%# render partial: 'users/new_prompt', locals: { user: user } %>
+
+    <%# TODO: Rolando: Should we allow users to collect other users, like prompts? %>
 
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
-        Last posted <%# time_ago_in_words user.prompts.last.created_at %> ago
+        <a href="/prompt/<%= user.prompts.last.id %>">Posted <%= time_ago_in_words user.prompts.last.created_at %> ago</a>
       </span>
 
       <span class="comments-number pull-right">
-        <%# link_to user do %>
-          <%# pluralize user.prompts.count, 'mention' %>
-        <%# end %>
+        <%= link_to user do %>
+          Contributed <%= pluralize user.prompts.count, 'prompt' %>
+          <% if user.concepts.present? %>
+            , <%= pluralize user.concepts.count, 'concept' %>
+          <% end %>
+          <% if user.characters.present? %>
+            , <%= pluralize user.characters.count, 'character' %>
+          <% end %>
+        <% end %>
       </span>
     </div>
   </div>
