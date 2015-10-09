@@ -16,13 +16,10 @@ class Prompt < ActiveRecord::Base
 
   has_attachment :image
 
-  validates :body, presence: true, length: {
-    minimum: 100,
-    maximum: 400,
-    tokenizer: lambda { |str| str.split(/\s+/) },
-    too_short: "must have at least %{count} words",
-    too_long: "must have at most %{count} words"
-  }
+  validates :body, presence: true
+  # validates :body, length: {
+  #   maximum: 140,
+  # }
 
 
   def to_s
@@ -61,7 +58,6 @@ class Prompt < ActiveRecord::Base
   def concept_list=(string)
     concept_list = string.scan(/\w+/).map do |name|
       name = name.downcase.titleize
-
       Concept.find_or_create_by(name: name)
     end
 
