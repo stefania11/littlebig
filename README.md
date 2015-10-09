@@ -12,4 +12,4 @@ To run LittleBig yourself, simply download our repo, run a server ('rails s') an
 
 We customized the free Bootstrap theme, [Triangle](https://shapebootstrap.net/item/1524992-triangle-free-responsive-multipurpose-template).
 
-From the Flatiron School with ♥ by [Stefania Druga](http://github/stefania11), [Rolando Brown](http://github.com/rolandobrown), [Drew Price](drewprice), and [Jessica Wray](http://github.com/jessicashannon).
+From the Flatiron School with ♥ by [Stefania Druga](http://github.com/stefania11), [Rolando Brown](http://github.com/rolandobrown), [Drew Price](http://github.com/drewprice), and [Jessica Wray](http://github.com/jessicashannon).
