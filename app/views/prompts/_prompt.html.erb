@@ -12,9 +12,8 @@
         <%= link_to "By #{prompt.user.username}", prompt.user %>
       </h3>
       <% if prompt.image.present? %>
-        <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse<%= prompt.id %>2">
-          Show images
-          <i class="fa fa-camera-retro"></i>
+        <a data-parent="#accordion-<%= prompt.id %>" class="toggle" data-toggle="collapse" href="#collapse<%= prompt.id %>2">
+          Close image <span class="fa fa-camera-retro"></span>
         </a>
       <% end %>
 
