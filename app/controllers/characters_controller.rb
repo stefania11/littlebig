@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :set_character, only: [:show, :edit, :update, :destroy, :new_mention, :create_mention]
+  before_action :set_character, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /characters
