@@ -1,5 +1,5 @@
 $('#bookmark-<%= @prompt.id %>')
-  .replaceWith('<i id="bookmark-<%= @prompt.id %>" class="fa fa-bookmark-o"></i>')
+  .replaceWith('<%= j render partial: "collections/collect", locals: { prompt: @prompt } %>');
 
 // On user's collection tab
 $('#accordion-<%= @prompt.id %>').slideUp(function(){
