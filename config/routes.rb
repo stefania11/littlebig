@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   # Prompts and 'responses'
-  resources :prompts, except: [:edit, :update, :destroy]
+  resources :prompts do
+    member do
+      post 'upvote'
+    end
+  end
   get 'prompts/:id/responses/new', to: 'prompts#new_response', as: 'new_response'
   post 'prompts/:id/responses', to: 'prompts#create_response', as: 'responses'
 
