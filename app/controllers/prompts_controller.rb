@@ -4,7 +4,7 @@ class PromptsController < ApplicationController
 
   # GET /prompts
   def index
-    @prompts = Prompt.take(20)
+    @prompts = Prompt.limit(20).order("RANDOM()")
   end
 
   # GET /prompts/:id
@@ -15,6 +15,8 @@ class PromptsController < ApplicationController
   def new
     @concept_id = params[:concept_id]
     @character_id = params[:character_id]
+    @source_id = params[:source_id]
+
     @prompt = Prompt.new
     respond_to do |format|
       format.html
@@ -26,8 +28,6 @@ class PromptsController < ApplicationController
   def create
     # TODO: refactor
     @prompt = current_user.prompts.new(prompt_params)
-    @prompt = Prompt.new(prompt_params)
-    @prompt.user = current_user
     if @prompt.concepts
       @prompt.concepts.each do |concept|
         concept.user = current_user
@@ -36,8 +36,8 @@ class PromptsController < ApplicationController
     end
     if @prompt.save
       respond_to do |format|
-        format.html { render @prompt }
-        format.js { render @prompt }
+        format.html { redirect_to @prompt }
+        format.js
       end
     else
       render :new
@@ -64,6 +64,6 @@ class PromptsController < ApplicationController
     end
 
     def prompt_params
-      params.require(:prompt).permit(:body, :user_id, :source_id, :concept_id, :character_id, :concept_list, :character_list, :photos)
+      params.require(:prompt).permit(:body, :user_id, :source_id, :concept_id, :character_id, :concept_list, :character_list, :image)
     end
 end

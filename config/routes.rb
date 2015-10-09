@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'welcomes#index'
 
   # Users
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
   resources :prompts, except: [:edit, :update, :destroy]
   get 'prompts/:id/responses/new', to: 'prompts#new_response', as: 'new_response'
   post 'prompts/:id/responses', to: 'prompts#create_response', as: 'responses'
+
+  # Collections
+  post 'collections/:prompt_id', to: 'collections#create', as: 'collect'
+  delete 'collections/:prompt_id', to: 'collections#destroy', as: 'uncollect'
 
   # Characters & Concepts
   resources :characters, :concepts

@@ -8,6 +8,7 @@
   <title>Little Big Questions</title>
   <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
+  <%= cloudinary_js_config %>
 
   <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -25,6 +26,5 @@
   <%= yield %>
   <%= render 'layouts/footer' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
-  <%= cloudinary_js_config %>
 </body>
 </html>

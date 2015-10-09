@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require 'attachinary/orm/active_record'
+
 module Littlebig
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -23,6 +25,5 @@ module Littlebig
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     # Establish Active Record as ORM for attachinary
-    require 'attachinary/orm/active_record'
   end
 end
