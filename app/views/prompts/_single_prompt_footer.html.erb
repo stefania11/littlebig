@@ -8,8 +8,7 @@
     <% if prompt.image.present? %>
       1 image,
     <% end %>
-      <td><%= pluralize prompt.responses.count, 'response' %></td>
-      <td><%= pluralize(prompt.votes.count, "vote") %></td>
+      <%= pluralize prompt.responses.count, 'response' %>
     <% end %>
   </span>
 </div>
