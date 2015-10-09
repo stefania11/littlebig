@@ -47,7 +47,7 @@
                 <% if @user.bio.present? %>
                 <p><%= @user.bio %></p>
                 <% else %>
-                <%= link_to "Please add a brief bio", edit_user_path(@user)%>
+                <%= link_to "Please tell us more about yourself", edit_user_path(@user)%>
                 <% end  %>
               </div>
               <div class="tab-pane fade" id="tab1-item2">
