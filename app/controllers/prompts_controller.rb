@@ -30,6 +30,7 @@ class PromptsController < ApplicationController
     @prompt = current_user.prompts.new(prompt_params)
     @prompt.concepts.each do |concept|
       concept.user ||= current_user
+      concept.save
     end
     render :new unless @prompt.save
   end

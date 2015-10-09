@@ -1,3 +1,3 @@
 $(function() {
-  $('.attachinary-input').attachinary()
+  $('.attachinary-input').attachinary();
 });

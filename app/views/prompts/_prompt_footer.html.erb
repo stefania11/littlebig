@@ -29,7 +29,7 @@
   </div>
 
   <% if prompt.image.present? %>
-  <div class="panel-collapse collapse out" id="collapse2<%= prompt.id %>">
+  <div class="panel-collapse collapse in" id="collapse2<%= prompt.id %>">
     <div class="panel-body">
       <%= cl_image_tag prompt.image.path, size: '500x400', crop: :fit, class: 'response-image' %>
     </div>

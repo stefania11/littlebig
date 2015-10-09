@@ -4,11 +4,12 @@ $('#bookmark-<%= @prompt.id %>')
 // On user's collection tab
 $('.current_user_collection').find('#accordion-<%= @prompt.id %>').slideUp(function(){
   $(this.remove)
-  var newCount = "<%= pluralize current_user.collected_prompts.count, 'prompt' %> collected";
 
-  $('#collection_count').fadeOut(function(){
-    $(this)
-      .text(newCount)
-      .fadeIn();
-  });
+});
+
+var newCount = "<%= pluralize current_user.collected_prompts.count, 'prompt' %> collected";
+$('#collection_count').fadeOut(function(){
+  $(this)
+    .text(newCount)
+    .fadeIn();
 });
