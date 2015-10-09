@@ -65,7 +65,8 @@ class ConceptsController < ApplicationController
   # end
 
   def create_mention
-    @concept.prompts.new(body: params[:prompt][:body])
+    binding.pry
+    @concept.prompts.new(body: params[:prompt][:body], user_id: current_user.id)
     @concept.save
   end
 
