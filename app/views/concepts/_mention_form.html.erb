@@ -1,4 +1,4 @@
-<%= form_tag concept_mentions_path(@concept.id), id: "concept{@concept.id}_response", method: :post, remote: true, authenticity_token: true do %>
+<%= form_tag concept_mentions_path(@concept.id), id: "concept#{@concept.id}_response", method: :post, remote: true, authenticity_token: true do %>
   <div class="form-group">
     <label for="prompt[body]" class="sr-only">Response</label>
     <input type="text" name="prompt[body]" placeholder="Short is good" class="form-control">
