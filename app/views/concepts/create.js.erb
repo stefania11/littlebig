@@ -1,7 +1,17 @@
-if (<%=@concept.id%> %2 === 0){
-  var partial = "<%= j render partial: 'concepts/right', locals: { concept: @concept } %>"
-}else {
-  var partial = "<%= j render partial: 'concepts/left', locals: { concept: @concept } %>"
-}
-$('#list_of_prompts').prepend(partial);
-$('#new_concept').replaceWith("<%= j render 'concepts/new_concept_btn' %>")
+var $form = $('#new_concept');
+var $success = $('<%= j render partial: "success", locals: { concept: @concept } %>').hide();
+
+$form.slideUp(function(){
+  $(this).replaceWith($success);
+
+  var $successOnDOM = $('#<%= @concept.id %>-success');
+  var $newConceptBtn = $('<%= j render "new_concept_btn" %>').hide();
+
+  $successOnDOM.slideDown(function(){
+    window.setTimeout(function(){
+      $successOnDOM.replaceWith($newConceptBtn)
+
+      $('#concept_new_btn').slideDown();
+    }, 4000);
+  });
+});
