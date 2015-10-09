@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <h1><%= @user.username %></h1>
+        <h1><%= @user %></h1>
       </div>
       <div class="tab-container">
         <div class="row">
@@ -17,13 +17,13 @@
               <li>
                 <a data-toggle="tab" href="#tab1-item3">PROMPTS</a>
               </li>
-                <li>
-                    <a data-toggle="tab" href="#tab1-item4">
-                      <i class="fa fa-bookmark"></i>
-                      COLLECTION
-                    </a>
-                </li>
-                <% if current_user == @user %>
+              <li>
+                  <a data-toggle="tab" href="#tab1-item4">
+                    COLLECTION
+                    <i class="fa fa-bookmark-o"></i>
+                  </a>
+              </li>
+              <% if current_user == @user %>
                 <li>
                   <%= link_to edit_user_path(@user) do %>
                     EDIT
@@ -31,10 +31,16 @@
                   <% end %>
                 </li>
               <% end %>
+              <li>
+                <%= mail_to @user.email do %>
+                  EMAIL
+                  <i class="fa fa-envelope-o"></i>
+                <% end %>
+              </li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane fade active in" id="tab1-item1">
-                <p><%= @user.bio ? @user.bio : 'Add a bio!' %></p>
+                <p><%= @user.bio %></p>
               </div>
               <div class="tab-pane fade" id="tab1-item2">
                 <%= render partial: 'users/concepts', locals: { user: @user } %>

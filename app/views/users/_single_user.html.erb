@@ -1,35 +1,40 @@
 <div class="single-blog timeline">
   <div class="post-content overflow">
     <h2 class="post-title bold">
-      <%= link_to user.username, user %>
+      <%= link_to user, user %>
     </h2>
 
     <h3 class="post-author">
-      <%# TODO: Add in the associated user %>
-      <a href="/users/<%= user.id %>">Joined <%= time_ago_in_words user.created_at %></a>
+      <%= link_to user_path(user) do %>
+        Joined <%= time_ago_in_words user.created_at %> ago
+      <% end %>
     </h3>
+
     <p>
       <%= user.bio %>
     </p>
 
-    <%# TODO: Drew: Does this make sense? Rolando: We should remove. %>
-    <%# render partial: 'users/new_prompt', locals: { user: user } %>
-
-    <%# TODO: Rolando: Should we allow users to collect other users, like prompts? %>
+    <div class="text-right">
+      <%= mail_to user.email, class: 'btn btn-common' do %>
+        <i class="fa fa-envelope-o"></i>
+      <% end %>
+    </div>
 
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
         <i class="fa fa-clock-o"></i>
-        <a href="/prompt/<%= user.prompts.last.id %>">Posted <%= time_ago_in_words user.prompts.last.created_at %> ago</a>
+        <%# link_to prompt_path(user.prompts.last) do %>
+          <!-- Posted <%# time_ago_in_words user.prompts.last.created_at %> ago -->
+        <%# end %>
       </span>
 
       <span class="comments-number pull-right">
         <%= link_to user do %>
           Contributed <%= pluralize user.prompts.count, 'prompt' %>
-          <% if user.concepts.present? %>
+          <% if user.concepts.any? %>
             , <%= pluralize user.concepts.count, 'concept' %>
           <% end %>
-          <% if user.characters.present? %>
+          <% if user.characters.any? %>
             , <%= pluralize user.characters.count, 'character' %>
           <% end %>
         <% end %>
