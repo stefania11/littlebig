@@ -1,4 +1,4 @@
-<div id="respond_to_#{prompt.id}" class="text-right">
+<div id="respond_to_<%= prompt.id %>" class="text-right">
   <%= link_to new_response_path(prompt.id), class: "btn btn-common", remote: true do %>
     <i class="fa fa-reply"></i>
   <% end %>
