@@ -55,15 +55,6 @@ class ConceptsController < ApplicationController
     redirect_to concepts_url, notice: 'Concept was successfully destroyed.'
   end
 
-  # def create_response
-  #   @concept.responses << current_user.concepts.new(concept_params)
-  #   @concept.save
-  #
-  #   respond_to do |format|
-  #     format.js
-  #   end
-  # end
-
   def create_mention
     @concept.prompts.new(body: params[:prompt][:body], user_id: current_user.id)
     if @concept.save
