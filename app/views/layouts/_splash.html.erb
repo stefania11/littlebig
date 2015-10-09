@@ -8,7 +8,9 @@
               <% if user_signed_in? %>
                 <%= link_to 'Ask a Question', new_prompt_path, class: 'btn btn-common uppercase' %>
               <% else %>
-                <%= link_to 'Sign Up', new_user_path, class: 'btn btn-common uppercase' %>
+                <%= link_to 'See Questions', prompts_path, class: 'btn btn-common uppercase' %>
+                <br><br>
+                <p>You can also ask a question by <%= link_to "joining", signup_path%></p>
               <% end %>
             </div>
             <img src="/images/home/slider/hill.png" class="slider-hill" alt="slider image">
