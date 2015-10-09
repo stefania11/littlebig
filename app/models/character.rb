@@ -16,7 +16,7 @@ class Character < ActiveRecord::Base
   end
 
   def to_s
-    name
+    "@#{name.gsub(' ', '')}"
   end
 
   def hash_tag
