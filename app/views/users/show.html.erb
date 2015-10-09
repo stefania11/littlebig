@@ -2,7 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="text-center">
-        <h1><%= @user %></h1>
+        <% if current_user == @user %>
+        <h1>Hi <%= @user %>!</h1>
+        <% else %>
+        <h1>Say hello to <%= @user %>!</h1>
+        <% end %>
       </div>
       <div class="tab-container">
         <div class="row">
