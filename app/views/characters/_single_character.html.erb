@@ -1,7 +1,7 @@
-<div class="single-blog timeline">
+<div class="single-blog timeline" id="character_<%= character.id %>">
   <div class="post-content overflow">
     <h2 class="post-title bold">
-      <%= link_to character.name, character %>
+      <%= link_to character, character %>
     </h2>
 
     <% if character.user %>
@@ -14,7 +14,7 @@
       <%= character.bio %>
     </p>
 
-    <%= render partial: 'characters/new_prompt', locals: { character: character } %>
+    <%= render partial: 'characters/new_mention_btn', locals: { character: character } %>
 
     <div class="post-bottom overflow">
       <span class="post-date pull-left">

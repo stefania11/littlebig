@@ -1,5 +1,5 @@
 class ConceptsController < ApplicationController
-  before_action :set_concept, only: [:show, :edit, :update, :destroy]
+  before_action :set_concept, except: [:index, :new]
   before_action :authenticate_user!, except: [:index, :show]
 
 
@@ -29,6 +29,7 @@ class ConceptsController < ApplicationController
   # POST /concepts
   def create
     @concept = Concept.new(concept_params)
+    @concept.user = current_user
     respond_to do |format|
       if @concept.save
         format.html { redirect_to @concept, notice: 'Concept was successfully created.' }
@@ -53,6 +54,19 @@ class ConceptsController < ApplicationController
   def destroy
     @concept.destroy
     redirect_to concepts_url, notice: 'Concept was successfully destroyed.'
+  end
+
+  def create_mention
+    @concept.prompts.new(body: params[:prompt][:body], user_id: current_user.id)
+    if @concept.save
+      flash[:notice] = "Your prompt was successfully created."
+    else
+      flash[:alert] = "That didn't work. Try again?"
+    end
+    flash.discard
+  end
+
+  def new_mention
   end
 
   private

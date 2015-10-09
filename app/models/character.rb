@@ -11,15 +11,14 @@ class Character < ActiveRecord::Base
     super.uniq
   end
 
-  def normalize_name
-    name.downcase.titleize
-  end
 
   def to_s
-    "@#{name.gsub(' ', '')}"
+    "@#{name.gsub(/[ \.]/, '')}"
   end
 
-  def hash_tag
-    "##{name.downcase.gsub(' ', '')}"
+  private
+
+  def normalize_name
+    name.downcase.titleize
   end
 end

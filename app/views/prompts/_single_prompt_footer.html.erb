@@ -1,16 +1,6 @@
-<div class="post-bottom overflow">
+<div id="index-footer-<%= prompt.id %>" class="post-bottom overflow">
   <span class="post-date pull-left">
-    <% if prompt.responders.include? current_user %>
-      <%= link_to prompt_path(prompt.last_response_by(current_user)) do %>
-        <i class="fa fa-check-circle"></i>
-        You responded
-        <%= time_ago_in_words prompt.last_response_by(current_user).created_at %>
-        ago
-      <% end %>
-    <% else %>
-      <i class="fa fa-clock-o"></i>
-      <%= time_ago_in_words prompt.created_at %> ago
-    <% end %>
+    <%= render partial: 'response_status', locals: { prompt: prompt } %>
   </span>
 
   <span class="comments-number pull-right">

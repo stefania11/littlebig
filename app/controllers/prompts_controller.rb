@@ -28,20 +28,10 @@ class PromptsController < ApplicationController
   def create
     # TODO: refactor
     @prompt = current_user.prompts.new(prompt_params)
-    if @prompt.concepts
-      @prompt.concepts.each do |concept|
-        concept.user = current_user
-        concept.save
-      end
+    @prompt.concepts.each do |concept|
+      concept.user ||= current_user
     end
-    if @prompt.save
-      respond_to do |format|
-        format.html { redirect_to @prompt }
-        format.js
-      end
-    else
-      render :new
-    end
+    render :new unless @prompt.save
   end
 
   # GET prompts/:id/responses/new
@@ -52,10 +42,6 @@ class PromptsController < ApplicationController
   def create_response
     @prompt.responses << current_user.prompts.new(prompt_params)
     @prompt.save
-
-    respond_to do |format|
-      format.js
-    end
   end
 
   private

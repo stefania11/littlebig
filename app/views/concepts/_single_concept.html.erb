@@ -1,7 +1,7 @@
-<div class="single-blog timeline">
+<div class="single-blog timeline" id="concept_<%= concept.id %>">
   <div class="post-content overflow">
     <h2 class="post-title bold">
-      <%= link_to concept.name, concept %>
+      <%= link_to concept, concept %>
     </h2>
     <% if concept.user %>
       <h3 class="post-author">
@@ -13,7 +13,7 @@
       <%= concept.overview %>
     </p>
 
-    <%= render partial: 'concepts/new_prompt', locals: { concept: concept } %>
+    <%= render partial: 'concepts/new_mention_btn', locals: { concept: concept } %>
 
     <div class="post-bottom overflow">
       <span class="post-date pull-left">
