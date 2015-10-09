@@ -15,7 +15,8 @@
 
   <span class="comments-number pull-right">
     <%= link_to prompt do %>
-      <%= pluralize prompt.responses.count, 'response' %>
+      <td><%= pluralize prompt.responses.count, 'response' %></td>
+      <td><%= pluralize(prompt.votes.count, "vote") %></td>
     <% end %>
   </span>
 </div>

@@ -1,5 +1,5 @@
 class PromptsController < ApplicationController
-  before_action :set_prompt, only: [:show, :new_response, :create_response]
+  before_action :set_prompt, only: [:show, :new_response, :create_response, :upvote]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /prompts
@@ -42,6 +42,11 @@ class PromptsController < ApplicationController
   def create_response
     @prompt.responses << current_user.prompts.new(prompt_params)
     @prompt.save
+  end
+
+  def upvote
+    @prompt.votes.create
+    redirect_to(prompts_path)
   end
 
   private
