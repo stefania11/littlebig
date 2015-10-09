@@ -65,9 +65,13 @@ class ConceptsController < ApplicationController
   # end
 
   def create_mention
-    binding.pry
     @concept.prompts.new(body: params[:prompt][:body], user_id: current_user.id)
-    @concept.save
+    if @concept.save
+      flash[:notice] = "Your prompt was successfully created."
+    else
+      flash[:alert] = "That didn't work. Try again?"
+    end
+    flash.discard
   end
 
   def new_mention

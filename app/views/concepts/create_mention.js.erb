@@ -14,3 +14,11 @@
       $('#concept-<%= @concept.id %> .post-bottom').slideDown();
     })
   });
+
+$('#blog').prepend('<%= j render 'layouts/flash' %>').hide().fadeIn();
+
+setTimeout(function(){
+  $('.alert').fadeOut(function(){
+    $(this).remove();
+  })
+}, 3000);
