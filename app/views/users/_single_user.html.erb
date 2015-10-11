@@ -14,11 +14,13 @@
       <%= user.bio %>
     </p>
 
-    <div class="text-right">
-      <%= mail_to user.email, class: 'btn btn-common' do %>
-        <i class="fa fa-envelope-o"></i>
-      <% end %>
-    </div>
+    <% if user_signed_in? %>
+      <div class="text-right">
+        <%= mail_to user.email, class: 'btn btn-common' do %>
+          <i class="fa fa-envelope-o"></i>
+        <% end %>
+      </div>
+    <% end %>
 
     <div class="post-bottom overflow">
       <% if user.prompts.any? %>
