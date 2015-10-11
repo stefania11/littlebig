@@ -5,13 +5,8 @@
     </h2>
 
     <h3 class="post-author">
-      <%# TODO: Refactor %>
-      <% if current_user != prompt.user %>
-        <% if current_user.collected_prompts.include? prompt %>
-          <%= render partial: 'collections/uncollect', locals: { prompt: prompt } %>
-        <% else %>
-          <%= render partial: 'collections/collect', locals: { prompt: prompt } %>
-        <% end %>
+      <% if user_signed_in? %>
+        <%= render partial: 'prompts/collectable', locals: { prompt: prompt } %>
       <% end %>
       <%= link_to "By #{prompt.user}", prompt.user %>
     </h3>

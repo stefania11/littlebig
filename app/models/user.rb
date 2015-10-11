@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
   def to_s
     username
   end
+
+  def can_collect?(prompt)
+    (self != prompt.user) && (collected_prompts.exclude? prompt)
+  end
 end
