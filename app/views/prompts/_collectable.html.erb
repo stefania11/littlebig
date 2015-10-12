@@ -1,0 +1,5 @@
+<% if current_user.can_collect? prompt %>
+  <%= render partial: 'collections/collect', locals: { prompt: prompt } %>
+<% else %>
+  <%= render partial: 'collections/uncollect', locals: { prompt: prompt } %>
+<% end %>

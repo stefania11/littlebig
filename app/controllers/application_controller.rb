@@ -13,8 +13,12 @@ helper_method :user_signed_in?, :current_user #makes it available in all the vie
   end
 
   def authenticate_user!
-    unless user_signed_in?
-      redirect_to root_path, alert: "You must be logged in to do that!"
+    return if user_signed_in?
+
+    respond_to do |format|
+      flash[:alert] = "You must be logged in to do that!"
+      format.html { redirect_to signup_path }
+      format.js { render js: "window.location = '#{signup_path}';" }
     end
   end
 end

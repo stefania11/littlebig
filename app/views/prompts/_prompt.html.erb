@@ -6,17 +6,8 @@
       </h2>
 
       <h3 class="post-author">
-        <%# TODO: Hella refactor %>
-        <% if current_user != prompt.user %>
-          <% if current_user.collected_prompts.include? prompt %>
-            <%= link_to uncollect_path(prompt), method: 'delete', remote: true do %>
-              <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark"></i>
-            <% end %>
-          <% else %>
-            <%= link_to collect_path(prompt), method: 'post', remote: true do %>
-              <i id="bookmark-<%= prompt.id %>" class="fa fa-bookmark-o"></i>
-            <% end %>
-          <% end %>
+        <% if user_signed_in? %>
+          <%= render partial: 'prompts/collectable', locals: { prompt: prompt } %>
         <% end %>
         <%= link_to "By #{prompt.user.username}", prompt.user %>
       </h3>
@@ -24,7 +15,7 @@
       <% if prompt.image.present? %>
         <a data-parent="#accordion-<%= prompt.id %>" data-toggle="collapse" href="#collapse2<%= prompt.id %>">
           Toggle image
-          <span class="fa fa-camera-retro"></span>
+          <i class="fa fa-camera-retro"></i>
         </a>
       <% end %>
 
