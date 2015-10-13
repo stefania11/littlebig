@@ -1,4 +1,5 @@
-<% if flash[:notice] %>
+<div class="row">
+  <% if flash[:notice] %>
   <div class="col-sm-2"></div>
 
   <div class="col-sm-8 text-center alert alert-success fade in">
@@ -13,3 +14,4 @@
     <%= flash[:alert] %>
   </div>
 <% end %>
+</div>
