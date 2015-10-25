@@ -17,10 +17,6 @@ class Prompt < ActiveRecord::Base
   has_attachment :image
 
   validates :body, presence: true
-  # validates :body, length: {
-  #   maximum: 140,
-  # }
-
 
   def to_s
     prompt.body
@@ -31,16 +27,7 @@ class Prompt < ActiveRecord::Base
   end
 
   def concepts_and_characters
-    case
-    when concepts.present? && characters.present?
-      concepts + characters
-    when concepts.present?
-      concepts
-    when characters.present?
-      characters
-    else
-      []
-    end
+    concepts + characters
   end
 
   def source_id=(id)
@@ -57,21 +44,16 @@ class Prompt < ActiveRecord::Base
 
   def concept_list=(string)
     concept_list = string.scan(/\w+/).map do |name|
-      name = name.downcase.titleize
-      Concept.find_or_create_by(name: name)
+      Concept.find_or_create_by(name: name.titleize)
     end
-
     self.concepts += concept_list
   end
 
   def character_list=(string)
-    # TODO: make this more robust, possibly a class?
-    character_list = string.split(/\,/).map do |name|
-      name = name.strip.downcase.titleize
-
+    character_list = string.split(/,/).map do |name|
+      name = name.strip.titleize
       Character.find_or_create_by(name: name)
     end
-
     self.characters += character_list
   end
 end
